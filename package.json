@@ -1,0 +1,18 @@
+{
+  "name": "palmekaprocode-js-pw",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "js:values": "node javascript/lesson-1.js",
+    "js:collections": "node javascript/lesson-2.js",
+    "js:functions": "node javascript/lesson-3/check-students.js",
+    "js:async": "node javascript/lesson-4/lesson-4-errors.js",
+    "test:first": "playwright test --config intro/qa-playwright/playwright.config.js",
+    "test": "playwright test --project=chromium",
+    "test:showcase": "playwright test tests/text-box/text-box.spec.js tests/accordion/accordion.spec.js tests/api/customers.spec.js tests/database/customers-sql.spec.js --project=chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

@@ -1,0 +1,36 @@
+name: playwright-tests
+# Так запуск будет называться на вкладке Actions.
+"on": [push, pull_request]
+# Проверяем отправленную ветку и собственный Pull Request.
+jobs:
+# Ниже описана одна группа действий.
+  tests:
+  # Даем группе короткое имя tests.
+    runs-on: ubuntu-latest
+    # GitHub выдаст чистую машину с Ubuntu.
+    steps:
+    # Следующие команды выполнятся по порядку.
+      - uses: actions/checkout@v6
+      # Забираем файлы текущей ветки.
+      - uses: actions/setup-node@v6
+      # Подготавливаем Node.js.
+        with:
+        # Передаем версию в setup-node.
+          node-version: 22
+          # Используем Node.js 22 для учебного проекта.
+      - run: npm ci
+      # Устанавливаем зависимости точно по package-lock.json.
+      - run: npx playwright install --with-deps chromium
+      # Устанавливаем Chromium и системные библиотеки.
+      - run: npx playwright test tests/text-box/text-box.spec.js tests/accordion/accordion.spec.js tests/api/customers.spec.js tests/database/customers-sql.spec.js --project=chromium
+      # Запускаем четыре читающих теста; setup подключится по зависимости.
+        env:
+        # Передаем адрес и доступы только этой команде.
+          BASE_URL: ${{ vars.BASE_URL }}
+          # Берем адрес сайта из переменной репозитория.
+          QA_EMAIL: ${{ secrets.QA_EMAIL }}
+          # Берем почту учебного аккаунта из секрета.
+          QA_PASSWORD: ${{ secrets.QA_PASSWORD }}
+          # Берем пароль из секрета.
+          TRAINING_API_TOKEN: ${{ secrets.TRAINING_API_TOKEN }}
+          # Берем личный API-токен из секрета.
