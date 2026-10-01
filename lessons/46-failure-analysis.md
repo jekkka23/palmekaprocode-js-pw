@@ -74,6 +74,30 @@ npx playwright show-trace "$(find test-results -name trace.zip -print -quit)"
 после исправления: 2 passed
 ```
 
+## Команды для копирования
+
+Выполняйте команды из корня palmekaprocode-js-pw. Копируйте строку целиком, без текста пояснения.
+
+**Обратите внимание.** Второй запуск намеренно завершится ошибкой. После него откройте сохраненный trace третьей командой.
+
+**Убедиться, что исходный тест проходит**
+
+```bash
+npx playwright test tests/text-box/text-box.spec.js --project=chromium --reporter=list
+```
+
+**Получить учебное падение**
+
+```bash
+RUN_FAILURE_DEMO=1 npx playwright test tests/diagnostics/failure-demo.spec.js --project=chromium --reporter=list
+```
+
+**Открыть trace падения**
+
+```bash
+npx playwright show-trace "$(find test-results -name trace.zip -print -quit)"
+```
+
 ## Что поменять для проверки понимания
 
 Меняйте по одному пункту, сначала предскажите итог, потом запустите пример и верните исходную строку.

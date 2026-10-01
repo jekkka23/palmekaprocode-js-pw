@@ -89,6 +89,34 @@ Playwright управляет браузером программно: откр�
 
 **Обратите внимание.** Если тест не прошел, найдите первую неудачную строку. Ошибка на /login относится ко входу; ошибка на /practice/text-box - к форме; на /practice/check-box - к галочкам; на /practice/select-menu - к выбору роли. Не исправляйте все сразу.
 
+## Команды для копирования
+
+Выполняйте команды из корня palmekaprocode-js-pw. Копируйте строку целиком, без текста пояснения.
+
+**Запустить новый тест**
+
+```bash
+npx playwright test intro/qa-playwright/tests/playwright-commands.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list
+```
+
+**Открыть видимое окно браузера**
+
+```bash
+npx playwright test intro/qa-playwright/tests/playwright-commands.spec.js --config intro/qa-playwright/playwright.config.js --headed --reporter=list
+```
+
+**Посмотреть найденные тесты без запуска**
+
+```bash
+npx playwright test --config intro/qa-playwright/playwright.config.js --list
+```
+
+**Посмотреть параметры Playwright**
+
+```bash
+npx playwright test --help
+```
+
 ## Что поменять для проверки понимания
 
 Меняйте одну строку, сначала предскажите исход, запустите ту же команду и верните строку обратно перед следующим опытом.

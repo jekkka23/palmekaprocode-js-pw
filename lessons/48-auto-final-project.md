@@ -12,7 +12,7 @@
 
 - Используйте palmekaprocode-js-pw после всех предыдущих уроков. Файлы страницы и хелпера формы, виджета и tests/auth.setup.js уже созданы; новые дубликаты не нужны.
 - Для API задайте TRAINING_API_TOKEN от того же учебного аккаунта. Читающие SQL-тесты используют cookie из setup. Проверку INSERT с отдельным аккаунтом в этот общий запуск не включаем.
-- Убедитесь, что .gitignore исключает playwright/.auth/ и токены. Итоговая карта ниже показывает существующие пути, которые затем попадут в преподавательскую репу.
+- Убедитесь, что .gitignore исключает playwright/.auth/ и токены. Итоговая карта ниже показывает существующие пути в готовой учебной репе.
 
 ## Сначала разберем слова
 
@@ -78,6 +78,30 @@ Setup сохранит вход, после него четыре независ
 
 ```text
 5 passed
+```
+
+## Команды для копирования
+
+Выполняйте команды из корня palmekaprocode-js-pw. Копируйте строку целиком, без текста пояснения.
+
+**Обратите внимание.** Для API-теста нужен токен из /practice/book-api от того же аккаунта. После первой команды вставьте токен и нажмите Enter.
+
+**Вставьте свой API-токен после запуска этой команды и нажмите Enter**
+
+```bash
+read -rs TRAINING_API_TOKEN && export TRAINING_API_TOKEN
+```
+
+**Запустить четыре теста и setup**
+
+```bash
+npx playwright test tests/text-box/text-box.spec.js tests/accordion/accordion.spec.js tests/api/customers.spec.js tests/database/customers-sql.spec.js --project=chromium --reporter=list
+```
+
+**Та же проверка короткой командой репы**
+
+```bash
+npm run test:showcase
 ```
 
 ## Что поменять для проверки понимания

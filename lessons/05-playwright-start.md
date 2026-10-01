@@ -23,30 +23,24 @@
 
 ## Подготовьте отдельный проект
 
-Откройте терминал и выполните команды по порядку. Корень проекта называется palmekaprocode-js-pw. Первые две спеки разместим в его папке intro/qa-playwright, как в готовом репозитории.
+Готовый проект лежит в репозитории https://github.com/jekkka23/palmekaprocode-js-pw. Если папки palmekaprocode-js-pw еще нет, клонируйте репозиторий в папку для учебных проектов. Если вы уже создавали эту папку вручную, сначала сохраните свои файлы отдельно и клонируйте репозиторий в свободное место. Все дальнейшие команды выполняйте из корня клонированного проекта.
 
 ```text
-mkdir palmekaprocode-js-pw
-# Создаем отдельную папку для автотестов.
+git clone https://github.com/jekkka23/palmekaprocode-js-pw.git
+# Скачиваем готовую учебную репу, если ее еще нет на компьютере.
 cd palmekaprocode-js-pw
-# Переходим в нее: следующие команды выполняем здесь.
-npm init -y
-# Создаем package.json с настройками проекта.
-npm pkg set type=module
-# Разрешаем import в обычных файлах .js.
-npm install -D @playwright/test
-# Устанавливаем Playwright Test в этот проект.
+# Переходим в корень проекта: следующие команды выполняем здесь.
+npm ci
+# Ставим точные версии пакетов из готового package-lock.json.
 npx playwright install chromium
 # Устанавливаем Chromium, в котором пойдут тесты.
-mkdir -p intro/qa-playwright/tests
-# Создаем папку для первых двух спек и их отдельного конфига.
 ```
 
-**Обратите внимание.** Если node --version не работает, установите Node.js с https://nodejs.org/ и откройте терминал заново. Команды npm и npx появятся вместе с Node.js.
+**Обратите внимание.** Команду git clone выполняйте только если папки проекта еще нет. В готовой репе уже есть package.json, package-lock.json, конфиг и спеки. Если node --version не работает, установите Node.js с https://nodejs.org/ и откройте терминал заново.
 
 ## Файл intro/qa-playwright/package.json
 
-Создайте этот небольшой файл внутри intro/qa-playwright. Поле type сообщает Node.js, что .js файлы вводной папки используют import. Зависимость @playwright/test уже установлена в корне проекта. В JSON нельзя добавлять комментарии.
+Откройте готовый intro/qa-playwright/package.json и разберите его строки. Поле type сообщает Node.js, что .js файлы вводной папки используют import. Зависимость @playwright/test установлена в корне проекта через npm ci. В JSON нельзя добавлять комментарии.
 
 [Открыть готовый файл](../intro/qa-playwright/package.json)
 
@@ -54,7 +48,7 @@ mkdir -p intro/qa-playwright/tests
 
 Сайт уже работает в интернете. Ваш проект хранит конфиг, спеки и установленные зависимости. Playwright обращается к сайту по адресу из baseURL и запускает тест в своем браузере.
 
-- **npm**: Команда для установки пакетов и настройки проекта Node.js. Здесь она создает package.json и ставит Playwright Test.
+- **npm**: Команда для работы с пакетами Node.js. Здесь npm ci ставит зависимости строго по package-lock.json готового проекта.
 - **npx**: Запускает команду установленного в проекте пакета. Здесь это команды Playwright.
 - **Playwright Test**: Инструмент, который открывает браузер, запускает тесты и сообщает, прошли ли проверки.
 - **Спека**: Файл с тестами. Файл intro/qa-playwright/tests/training-field.spec.js ниже содержит один тест перехода в тренировочное поле.
@@ -65,15 +59,15 @@ mkdir -p intro/qa-playwright/tests
 
 ## Как это работает
 
-В конфиге зададим адрес сайта и Chromium. Затем создадим intro/qa-playwright/tests/training-field.spec.js: тест откроет форму входа, заполнит учебные логин и пароль, перейдет через кабинет в тренировочное поле и проверит заголовок тренажера.
+В готовом конфиге указан адрес сайта и Chromium. Затем разберем intro/qa-playwright/tests/training-field.spec.js: тест откроет форму входа, заполнит учебные логин и пароль, перейдет через кабинет в тренировочное поле и проверит заголовок тренажера.
 
-- Создаем конфиг с адресом сайта и браузером Chromium
-- Пишем тест входа и перехода через тренировочное поле
+- Разбираем конфиг с адресом сайта и браузером Chromium
+- Разбираем тест входа и перехода через тренировочное поле
 - Запускаем спеку и проверяем результат
 
 ## Конфиг вводных тестов: intro/qa-playwright/playwright.config.js
 
-Создайте intro/qa-playwright/playwright.config.js и скопируйте весь код вместе с комментариями. Адрес сайта сразу записан в baseURL.
+Откройте готовый intro/qa-playwright/playwright.config.js и разберите весь код вместе с комментариями. Адрес сайта уже записан в baseURL.
 
 [Открыть готовый файл](../intro/qa-playwright/playwright.config.js)
 
@@ -81,7 +75,7 @@ mkdir -p intro/qa-playwright/tests
 
 ## Первая спека: intro/qa-playwright/tests/training-field.spec.js
 
-Сохраните спеку по полному пути intro/qa-playwright/tests/training-field.spec.js. Тест использует учебную учетку и проходит через те же страницы, что вы открывали вручную. Скопируйте код вместе с комментариями.
+Откройте готовую спеку по полному пути intro/qa-playwright/tests/training-field.spec.js. Тест использует учебную учетку и проходит через те же страницы, что вы открывали вручную. Разберите код и комментарии строка за строкой.
 
 [Открыть готовый файл](../intro/qa-playwright/tests/training-field.spec.js)
 
@@ -89,7 +83,7 @@ mkdir -p intro/qa-playwright/tests
 
 ## Как запустить и что увидеть
 
-Проверьте, что терминал открыт в корне palmekaprocode-js-pw. Сохраните package.json и оба файла .js в intro/qa-playwright. Выполните npx playwright test intro/qa-playwright/tests/training-field.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list.
+Проверьте, что терминал открыт в корне palmekaprocode-js-pw. Файлы intro/qa-playwright/package.json, intro/qa-playwright/playwright.config.js и intro/qa-playwright/tests/training-field.spec.js уже есть в репе. Выполните npx playwright test intro/qa-playwright/tests/training-field.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list.
 
 В конце успешного запуска появится текст "1 passed". Это значит, что тест вошел под учебным аккаунтом и дошел до заголовка "Текстовые поля". Playwright также покажет имя теста и время выполнения; время зависит от сети и компьютера. По умолчанию браузер работает без видимого окна.
 
@@ -98,6 +92,40 @@ mkdir -p intro/qa-playwright/tests
 ```
 
 **Обратите внимание.** Если Playwright пишет, что браузер не найден, снова выполните npx playwright install chromium. Если тест не находит файл, проверьте путь intro/qa-playwright/tests/training-field.spec.js и параметр --config. Если вместо поля открылся кабинет, проверьте логин и пароль в спеке.
+
+## Команды для копирования
+
+Если готовой папки еще нет, клонируйте репозиторий из папки для проектов. После cd выполняйте остальные команды в корне palmekaprocode-js-pw.
+
+**Один раз: скачать готовую репу**
+
+```bash
+git clone https://github.com/jekkka23/palmekaprocode-js-pw.git
+```
+
+**Перейти в папку проекта**
+
+```bash
+cd palmekaprocode-js-pw
+```
+
+**Один раз: установить зависимости из package-lock.json**
+
+```bash
+npm ci
+```
+
+**Один раз: установить Chromium**
+
+```bash
+npx playwright install chromium
+```
+
+**Запустить первый тест**
+
+```bash
+npx playwright test intro/qa-playwright/tests/training-field.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list
+```
 
 ## Что поменять для проверки понимания
 

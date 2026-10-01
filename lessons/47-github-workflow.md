@@ -10,11 +10,11 @@
 
 Проверьте эти условия до запуска примера.
 
-- У вас уже есть palmekaprocode-js-pw с package.json, package-lock.json, playwright.config.js и тестами из предыдущих уроков. Перед публикацией запустите хотя бы одну готовую спеку.
-- Добавьте в .gitignore строки playwright/.auth/, test-results/, playwright-report/, .env и node_modules/. Проверьте git status: student.json и файлы с токенами не должны появиться в списке.
-- Если palmekaprocode-js-pw еще не репозиторий, выполните в его корне git init -b main. На GitHub создайте пустой репозиторий palmekaprocode-js-pw без автоматического README и скопируйте его полный HTTPS-адрес.
-- Привяжите свой адрес командой git remote add origin https://github.com/ВАШ_ЛОГИН/palmekaprocode-js-pw.git, заменив ВАШ_ЛОГИН на свое имя. Проверьте адрес через git remote -v.
-- Создайте основную ветку с уже готовым проектом: git add tests playwright.config.js package.json package-lock.json .gitignore, затем git commit -m "собран учебный проект Playwright" и git push -u origin main. Убедитесь, что GitHub показывает файлы в main.
+- Используйте клонированный palmekaprocode-js-pw из урока первого запуска. В нем уже есть Git, ветка main, package.json, package-lock.json, playwright.config.js и изученные тесты. Перед публикацией запустите хотя бы одну готовую спеку.
+- Откройте готовый .gitignore и проверьте, что playwright/.auth/, test-results/, playwright-report/, .env и node_modules/ исключены. Команда git status не должна показывать student.json и файлы с токенами.
+- Откройте https://github.com/jekkka23/palmekaprocode-js-pw и нажмите Fork, чтобы получить свою копию репозитория. Скопируйте полный HTTPS-адрес своего Fork с кнопки Code.
+- В терминале выполните read -r GITHUB_REPO_URL && git remote set-url origin "$GITHUB_REPO_URL". Команда дождется, пока вы вставите адрес своего Fork и нажмете Enter. Проверьте git remote -v: обе строки origin должны вести в ваш Fork, а не в исходную репу.
+- Перед первым коммитом задайте имя и почту автора именно в этом клоне. Для почты можно использовать адрес GitHub noreply. Готовые команды ниже спросят оба значения и запишут их только в настройки этой репы.
 - В настройках Actions задайте переменную BASE_URL и секреты QA_EMAIL, QA_PASSWORD, TRAINING_API_TOKEN. Для REST API скопируйте токен из своего тренажера.
 
 ## Сначала разберем слова
@@ -30,27 +30,36 @@
 
 Создайте ветку для нового теста, отправьте коммит и откройте Pull Request. Затем подключите GitHub Actions: он установит зависимости и запустит Playwright. Для закрытого полигона адрес можно хранить в переменной GitHub, а почту, пароль и токен - в secrets.
 
-- Добавить .auth/ и секретные файлы в .gitignore
-- Создать ветку и коммит
+- Проверить .gitignore и сделать Fork
+- Привязать свой Fork и создать ветку
+- Скопировать YAML и сохранить коммит
 - Отправить ветку на GitHub
 - Открыть Pull Request
 - Посмотреть результат GitHub Actions
 
 ## Команды для ветки с GitHub Actions
 
-Готовый пример в учебной репе лежит в examples/github/playwright.yml. Сначала сохраните YAML из блока ниже по этому пути. Для своего GitHub Actions скопируйте его в .github/workflows/playwright.yml: только там GitHub запускает workflow. Затем проверьте git status; репозиторий origin уже привязан.
+Готовый YAML уже лежит в examples/github/playwright.yml. Скопируйте его в .github/workflows/playwright.yml: только из этой папки GitHub запускает Actions. Перед git push обязательно убедитесь, что origin указывает на ваш Fork.
 
 ```bash
 git status
 # Проверяем, какие файлы попадут в историю и нет ли student.json.
+read -r GITHUB_REPO_URL && git remote set-url origin "$GITHUB_REPO_URL"
+# Вставляем HTTPS-адрес своего Fork и меняем origin.
+git remote -v
+# Убеждаемся, что fetch и push ведут в свой Fork.
+read -r GIT_AUTHOR_NAME && git config user.name "$GIT_AUTHOR_NAME"
+# Вводим свое имя для будущего коммита только в этом проекте.
+read -r GIT_AUTHOR_EMAIL && git config user.email "$GIT_AUTHOR_EMAIL"
+# Вводим почту GitHub или адрес noreply только для этого проекта.
 git switch -c ci/playwright
 # Создаем ветку от main для автоматического запуска.
 mkdir -p .github/workflows
 # Создаем рабочую папку GitHub Actions в своей копии проекта.
 cp examples/github/playwright.yml .github/workflows/playwright.yml
 # Копируем готовый учебный пример туда, где GitHub его запустит.
-git add examples/github/playwright.yml .github/workflows/playwright.yml
-# Добавляем учебный пример и его рабочую копию; остальной код уже в main.
+git add .github/workflows/playwright.yml
+# Добавляем только новую рабочую копию; учебный пример уже есть в main.
 git diff --cached --stat
 # Еще раз смотрим список подготовленных файлов перед коммитом.
 git commit -m "добавлен запуск Playwright в Actions"
@@ -59,11 +68,11 @@ git push -u origin ci/playwright
 # Отправляем ветку в свой GitHub-репозиторий.
 ```
 
-**Обратите внимание.** Для GitHub используется Pull Request. Секреты для GitHub Actions задаются в настройках репозитория, а не внутри workflow-файла.
+**Обратите внимание.** Проверьте адрес origin перед отправкой ветки. Для GitHub используется Pull Request. Секреты для GitHub Actions задаются в настройках вашего Fork, а не внутри workflow-файла.
 
 ## Готовый файл: examples/github/playwright.yml
 
-Сохраните пример по пути examples/github/playwright.yml. В нем запускаются четыре уже изученные читающие проверки; тест INSERT с reset не входит в общий прогон. Комментарии под строками можно оставить в YAML. Команда cp из блока выше создаст рабочую копию для GitHub Actions.
+Откройте готовый пример по пути examples/github/playwright.yml. В нем запускаются четыре уже изученные читающие проверки; тест INSERT с reset не входит в общий прогон. Комментарии под строками уже есть в YAML. Команда cp из блока выше создаст рабочую копию для GitHub Actions.
 
 ```yaml
 name: playwright-tests
@@ -110,8 +119,8 @@ jobs:
 
 Выполняйте шаги по порядку.
 
-- В корне palmekaprocode-js-pw создайте .gitignore, инициализируйте main и отправьте первый коммит по шагам подготовки. Сохраните пример в examples/github/playwright.yml, затем скопируйте его в .github/workflows/playwright.yml командами из блока выше.
-- Откройте Pull Request из ci/playwright в main и вкладку Actions. После настройки vars.BASE_URL и трех secrets запустится указанный набор из четырех тестов.
+- В корне palmekaprocode-js-pw проверьте .gitignore и git status. Сделайте Fork на GitHub, привяжите его как origin, создайте ветку ci/playwright и скопируйте готовый YAML командами из блока выше.
+- После git push откройте Pull Request из ci/playwright в main своего Fork и вкладку Actions. После настройки vars.BASE_URL и трех secrets запустится указанный набор из четырех тестов.
 
 ## Какой результат ожидать
 
@@ -119,6 +128,84 @@ jobs:
 
 ```text
 5 passed
+```
+
+## Команды для копирования
+
+Выполняйте команды из корня palmekaprocode-js-pw. Копируйте строку целиком, без текста пояснения.
+
+**Обратите внимание.** Сначала сделайте Fork готовой репы в своем GitHub. Команда с read дождется, пока вы вставите HTTPS-адрес своего Fork. Только после этого меняйте origin и отправляйте ветку.
+
+**Проверить текущий репозиторий**
+
+```bash
+git status
+```
+
+**Привязать свой Fork вместо исходного origin**
+
+```bash
+read -r GITHUB_REPO_URL && git remote set-url origin "$GITHUB_REPO_URL"
+```
+
+**Проверить адрес своего Fork**
+
+```bash
+git remote -v
+```
+
+**Один раз: введите имя автора коммита**
+
+```bash
+read -r GIT_AUTHOR_NAME && git config user.name "$GIT_AUTHOR_NAME"
+```
+
+**Один раз: введите почту автора коммита**
+
+```bash
+read -r GIT_AUTHOR_EMAIL && git config user.email "$GIT_AUTHOR_EMAIL"
+```
+
+**Создать ветку урока**
+
+```bash
+git switch -c ci/playwright
+```
+
+**Создать папку Actions**
+
+```bash
+mkdir -p .github/workflows
+```
+
+**Скопировать готовый YAML**
+
+```bash
+cp examples/github/playwright.yml .github/workflows/playwright.yml
+```
+
+**Добавить файл в коммит**
+
+```bash
+git add .github/workflows/playwright.yml
+```
+
+**Проверить состав коммита**
+
+```bash
+git diff --cached --stat
+```
+
+**Сохранить изменение**
+
+```bash
+git commit -m "добавлен запуск Playwright в Actions"
+```
+
+**Отправить ветку в свой Fork**
+
+```bash
+git push -u origin ci/playwright
 ```
 
 ## Что поменять для проверки понимания
