@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после блока архитектуры. Проекты setup и chromium, baseURL и сохраненная сессия уже настроены. Откройте https://palmekaprocode.ru/practice/text-box под учебным аккаунтом в Chrome.
+Продолжайте в palmekaprocode-js-pw после блока архитектуры. Проекты setup и chromium, baseURL и сохраненная сессия уже настроены. Откройте https://palmekaprocode.ru/practice/text-box под учебным аккаунтом в Chrome.
 
 Создайте папку tests/xpath. Для этого урока нужен один файл tests/xpath/xpath-basics.spec.js. Хелпер и класс страницы пока не нужны: сначала важно увидеть сам поиск элемента.
 
@@ -71,7 +71,7 @@
 
 ## Как запустить и какой вывод ожидать
 
-Сохраните файл в tests/xpath/xpath-basics.spec.js. В корне qa-playwright выполните npx playwright test tests/xpath/xpath-basics.spec.js --project=chromium --reporter=list.
+Сохраните файл в tests/xpath/xpath-basics.spec.js. В корне palmekaprocode-js-pw выполните npx playwright test tests/xpath/xpath-basics.spec.js --project=chromium --reporter=list.
 
 Setup подготовит сессию, затем пройдет один XPath-тест. В конце успешного запуска будет 2 passed. В блоке результата тест найдет имя и почту, введенные выше.
 

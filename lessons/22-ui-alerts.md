@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после урока вкладок браузера. Здесь dialog - системное окно браузера, а не HTML-модалка внутри страницы.
+Продолжайте в palmekaprocode-js-pw после урока вкладок браузера. Здесь dialog - системное окно браузера, а не HTML-модалка внутри страницы.
 
 Откройте https://palmekaprocode.ru/practice/alerts под учебным аккаунтом. Найдите button с id alert-button и p внутри блока alert-result. После ручного клика закройте системное окно кнопкой ОК.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/alerts/alerts.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/alerts/alerts.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. После принятия alert страница покажет "Обычное уведомление закрыто".
 

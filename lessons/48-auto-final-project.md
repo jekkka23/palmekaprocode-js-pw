@@ -10,7 +10,7 @@
 
 Проверьте эти условия до запуска примера.
 
-- Используйте qa-playwright после всех предыдущих уроков. Файлы страницы и хелпера формы, виджета и tests/auth.setup.js уже созданы; новые дубликаты не нужны.
+- Используйте palmekaprocode-js-pw после всех предыдущих уроков. Файлы страницы и хелпера формы, виджета и tests/auth.setup.js уже созданы; новые дубликаты не нужны.
 - Для API задайте TRAINING_API_TOKEN от того же учебного аккаунта. Читающие SQL-тесты используют cookie из setup. Проверку INSERT с отдельным аккаунтом в этот общий запуск не включаем.
 - Убедитесь, что .gitignore исключает playwright/.auth/ и токены. Итоговая карта ниже показывает существующие пути, которые затем попадут в преподавательскую репу.
 
@@ -48,7 +48,7 @@ tests/accordion/pages/accordion_page.js
 tests/accordion/helpers/functions_accordion.js
 tests/api/customers.spec.js
 tests/database/customers-sql.spec.js
-.github/workflows/playwright.yml
+examples/github/playwright.yml
 ```
 
 **Обратите внимание.** Не добавляйте в GitHub .auth/student.json, пароли и токены. Перед отправкой запустите каждый тест отдельно и затем весь набор.
@@ -62,13 +62,13 @@ tests/database/customers-sql.spec.js
 - Три файла tests/text-box/ делят флоу формы на спеку, действия страницы и шаги хелпера.
 - Три файла tests/accordion/ так же делят проверку виджета. В каждом тесте своя новая вкладка.
 - tests/api/customers.spec.js проверяет REST API через Bearer-токен; tests/database/customers-sql.spec.js читает SQL через cookie.
-- .github/workflows/playwright.yml повторяет тот же безопасный набор на GitHub Actions. Файл tests/database/customer-insert.spec.js остается отдельной демонстрацией и не запускается в общем наборе.
+- examples/github/playwright.yml хранит готовый YAML. Для запуска Actions скопируйте его в .github/workflows/playwright.yml своей репы. Файл tests/database/customer-insert.spec.js остается отдельной демонстрацией и не запускается в общем наборе.
 
 ## Как запустить
 
 Выполняйте шаги по порядку.
 
-- В корне qa-playwright задайте TRAINING_API_TOKEN из своего тренажера. Для локального запуска оставьте учебные QA_EMAIL и QA_PASSWORD по умолчанию или задайте свои переменные.
+- В корне palmekaprocode-js-pw задайте TRAINING_API_TOKEN из своего тренажера. Для локального запуска оставьте учебные QA_EMAIL и QA_PASSWORD по умолчанию или задайте свои переменные.
 - Выполните npx playwright test tests/text-box/text-box.spec.js tests/accordion/accordion.spec.js tests/api/customers.spec.js tests/database/customers-sql.spec.js --project=chromium --reporter=list.
 - Проверьте, что в команду не включен tests/database/customer-insert.spec.js. Он требует отдельного аккаунта и отдельного запуска.
 

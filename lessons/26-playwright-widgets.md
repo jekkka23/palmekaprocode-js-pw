@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright с setup и проектом chromium. Откройте https://palmekaprocode.ru/practice/accordion под учебным аккаунтом и найдите пункт про автоматизацию.
+Продолжайте в palmekaprocode-js-pw с setup и проектом chromium. Откройте https://palmekaprocode.ru/practice/accordion под учебным аккаунтом и найдите пункт про автоматизацию.
 
 Создайте tests/accordion/pages и tests/accordion/helpers. Новый тест запускается сам по себе и не зависит от урока про модальные окна.
 
@@ -62,7 +62,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/accordion/accordion.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/accordion/accordion.spec.js --project=chromium --reporter=list.
 
 Setup подготовит сессию, затем пройдет тест аккордеона. Последняя строка успешного запуска - 2 passed. Шаг 2 проверит открытое состояние, шаг 3 - закрытое.
 

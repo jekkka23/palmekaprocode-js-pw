@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после первого XPath-урока. Сохраненная сессия и tests/xpath/xpath-basics.spec.js уже работают.
+Продолжайте в palmekaprocode-js-pw после первого XPath-урока. Сохраненная сессия и tests/xpath/xpath-basics.spec.js уже работают.
 
 Откройте в браузере https://palmekaprocode.ru/practice/check-box и https://palmekaprocode.ru/practice/web-tables. В DevTools посмотрите label вокруг чекбокса и td с почтой Ирины в строке таблицы.
 
@@ -58,7 +58,7 @@
 
 ## Как запустить и какой вывод ожидать
 
-Сохраните файл в tests/xpath/xpath-relations.spec.js. В корне qa-playwright выполните npx playwright test tests/xpath/xpath-relations.spec.js --project=chromium --reporter=list.
+Сохраните файл в tests/xpath/xpath-relations.spec.js. В корне palmekaprocode-js-pw выполните npx playwright test tests/xpath/xpath-relations.spec.js --project=chromium --reporter=list.
 
 Setup выполнится один раз, затем пройдут два независимых теста. В конце успешного запуска будет 3 passed. Первый проверит дочерние галочки, второй - строку Ирины.
 

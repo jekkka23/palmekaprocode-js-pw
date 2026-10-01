@@ -10,9 +10,10 @@
 
 Проверьте эти условия до запуска примера.
 
-- Запускайте qa-playwright с конфигом из урока сохраненного входа: в нем trace: "retain-on-failure". Без этой строки zip-файл после падения может не появиться.
+- Запускайте palmekaprocode-js-pw с конфигом из урока сохраненного входа: в нем trace: "retain-on-failure". Без этой строки zip-файл после падения может не появиться.
 - Возьмите уже работающую спеку tests/text-box/text-box.spec.js из урока текстовых полей. Сначала убедитесь, что она проходит без изменений.
 - Для учебного падения временно измените только ожидаемое имя в tests/text-box/helpers/functions_text_box.js. Запомните исходное значение, чтобы вернуть его после разбора.
+- В готовой репе также есть tests/diagnostics/failure-demo.spec.js. Это отдельная спека с намеренно неверным ожиданием; обычный запуск ее пропускает. Она пригодится, если хотите показать падение, не меняя рабочий хелпер.
 
 ## Сначала разберем слова
 
@@ -46,7 +47,7 @@ await expect(form.result).toContainText("Мария");
 
 ## Запускаем и открываем trace
 
-В корне qa-playwright последовательно выполните команды. Вторая найдет созданный trace.zip в test-results и откроет просмотрщик.
+В корне palmekaprocode-js-pw последовательно выполните команды. Вторая найдет созданный trace.zip в test-results и откроет просмотрщик.
 
 ```bash
 npx playwright test tests/text-box/text-box.spec.js --project=chromium --reporter=list
@@ -62,6 +63,7 @@ npx playwright show-trace "$(find test-results -name trace.zip -print -quit)"
 - Сначала запустите исходную спеку: npx playwright test tests/text-box/text-box.spec.js --project=chromium --reporter=list. Ожидайте 2 passed.
 - Замените строку в хелпере на учебное ожидание "Мария" и выполните две команды из блока выше по очереди.
 - В trace откройте шаг "Шаг 3. Проверить результат". Сравните ожидаемое имя с текстом блока результата на снимке DOM. Затем верните await expect(form.result).toContainText(data.name); и запустите спеку еще раз.
+- Если хотите получить такое же падение без правки хелпера, выполните RUN_FAILURE_DEMO=1 npx playwright test tests/diagnostics/failure-demo.spec.js --project=chromium --reporter=list. Эта отдельная спека намеренно упадет на имени "Мария"; обычный запуск ее пропускает.
 
 ## Какой результат ожидать
 

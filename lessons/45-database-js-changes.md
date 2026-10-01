@@ -47,7 +47,7 @@
 Выполняйте шаги по порядку.
 
 - Задайте QA_EMAIL и QA_PASSWORD отдельного аккаунта в текущем терминале. Не используйте общий test-auto@palmekaprocode.ru.
-- В корне qa-playwright выполните RUN_SQL_CHANGES=1 npx playwright test tests/database/customer-insert.spec.js --project=chromium --reporter=list. Команда запускает именно эту спеку, не весь набор.
+- В корне palmekaprocode-js-pw выполните RUN_SQL_CHANGES=1 npx playwright test tests/database/customer-insert.spec.js --project=chromium --reporter=list. Команда запускает именно эту спеку, не весь набор.
 
 ## Какой результат ожидать
 

@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright с рабочими playwright.config.js и tests/auth.setup.js. Новый тест находится в отдельных папках pages и helpers и пользуется сохраненной сессией.
+Продолжайте в palmekaprocode-js-pw с рабочими playwright.config.js и tests/auth.setup.js. Новый тест находится в отдельных папках pages и helpers и пользуется сохраненной сессией.
 
 Откройте https://palmekaprocode.ru/practice/practice-form под учебным аккаунтом. До выбора региона список городов заблокирован. После отправки корректных данных открывается окно "Отправленные данные" с таблицей результатов.
 
@@ -63,7 +63,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/practice-form/practice-form.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/practice-form/practice-form.spec.js --project=chromium --reporter=list.
 
 Setup выполнит вход, затем тест заполнит форму. После успешного запуска последняя строка содержит 2 passed. В итоговом окне должны быть строки "Ученик - Мария Соколова" и "Регион и город - Свердловская область, Екатеринбург". Знак дефиса здесь поясняет две ячейки строки таблицы.
 

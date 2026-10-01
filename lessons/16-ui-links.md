@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после кнопок. Эта ссылка открывается в той же вкладке, поэтому проверка продолжится с тем же page.
+Продолжайте в palmekaprocode-js-pw после кнопок. Эта ссылка открывается в той же вкладке, поэтому проверка продолжится с тем же page.
 
 Откройте https://palmekaprocode.ru/practice/links под учебным аккаунтом. В Elements найдите a с id practice-link внутри links-playground и его href=/practice. Сравните это с адресом после клика.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/links/links.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/links/links.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Текущая вкладка перейдет на /practice и покажет список тренажеров.
 

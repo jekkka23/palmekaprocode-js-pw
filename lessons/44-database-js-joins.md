@@ -54,7 +54,7 @@
 
 Выполняйте шаги по порядку.
 
-- Сохраните файл tests/database/orders-join.spec.js. В qa-playwright уже должен работать tests/auth.setup.js с доступом к полю.
+- Сохраните файл tests/database/orders-join.spec.js. В palmekaprocode-js-pw уже должен работать tests/auth.setup.js с доступом к полю.
 - Выполните npx playwright test tests/database/orders-join.spec.js --project=chromium --reporter=list.
 
 ## Какой результат ожидать

@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/slider/slider.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/slider/slider.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. После Home и ArrowRight поле и подпись покажут 1.
 

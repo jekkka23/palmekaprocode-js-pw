@@ -48,7 +48,7 @@ Playwright сам повторяет проверку, пока число не 
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/progress-bar/progress-bar.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/progress-bar/progress-bar.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Прогресс успеет измениться, затем вернется к 0 и снова покажет Запустить.
 

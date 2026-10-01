@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после простого iframe. В DevTools раскройте parent-frame и найдите child-frame внутри его документа.
+Продолжайте в palmekaprocode-js-pw после простого iframe. В DevTools раскройте parent-frame и найдите child-frame внутри его документа.
 
 Откройте https://palmekaprocode.ru/practice/nested-frames под учебным аккаунтом. На основной странице есть iframe parent-frame. Внутри него расположен iframe child-frame, а в дочернем DOM - p с id child-frame-text.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/nested-frames/nested-frames.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/nested-frames/nested-frames.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Тест прочитает "Дочерний фрейм" внутри двух уровней iframe.
 

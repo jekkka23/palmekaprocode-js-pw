@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после урока ссылок. Для картинки используем ее DOM-свойство naturalWidth: у загруженной оно больше нуля, у сломанной равно нулю.
+Продолжайте в palmekaprocode-js-pw после урока ссылок. Для картинки используем ее DOM-свойство naturalWidth: у загруженной оно больше нуля, у сломанной равно нулю.
 
 Откройте https://palmekaprocode.ru/practice/broken-links под учебным аккаунтом. В Elements найдите img с id valid-image и broken-image, а также a с id broken-link. Проверьте их XPath до запуска теста.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/broken-links/broken-links.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/broken-links/broken-links.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Рабочая картинка имеет ширину больше нуля, битая - ноль, ссылка хранит адрес отсутствующей страницы.
 

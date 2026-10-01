@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Нужен тот же qa-playwright. Из урока веб-таблицы должны существовать tests/web-tables/pages/web_tables_page.js и tests/web-tables/helpers/functions_web_tables.js с экспортом runRecordCase. Оставьте их без изменений.
+Нужен тот же palmekaprocode-js-pw. Из урока веб-таблицы должны существовать tests/web-tables/pages/web_tables_page.js и tests/web-tables/helpers/functions_web_tables.js с экспортом runRecordCase. Оставьте их без изменений.
 
 Создайте рядом файл tests/web-tables/independent.spec.js. Setup авторизации и проект chromium уже настроены. Каждому test Playwright выдаст свою вкладку page; веб-таблица внутри нее начнется с исходного состояния.
 
@@ -50,7 +50,7 @@
 
 ## Как запустить оба теста
 
-В корне qa-playwright выполните npx playwright test tests/web-tables/independent.spec.js --project=chromium --reporter=list. Setup пройдет один раз, затем обе записи будут созданы в отдельных вкладках.
+В корне palmekaprocode-js-pw выполните npx playwright test tests/web-tables/independent.spec.js --project=chromium --reporter=list. Setup пройдет один раз, затем обе записи будут созданы в отдельных вкладках.
 
 Последняя строка успешного запуска - 3 passed: один setup и два самостоятельных теста. Порядок этих двух тестов не влияет на их результат.
 

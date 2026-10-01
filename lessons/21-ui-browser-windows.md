@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после учебной формы. Сохраненная сессия дает доступ к тренажеру, а новая вкладка появится в том же браузерном контексте.
+Продолжайте в palmekaprocode-js-pw после учебной формы. Сохраненная сессия дает доступ к тренажеру, а новая вкладка появится в том же браузерном контексте.
 
 Откройте https://palmekaprocode.ru/practice/browser-windows под учебным аккаунтом. Найдите button с id new-tab. После ручного клика осмотрите заголовок "Новая вкладка" в открывшемся окне.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/browser-windows/browser-windows.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/browser-windows/browser-windows.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. В новой вкладке будут заголовок "Новая вкладка" и текст про отдельную страницу.
 

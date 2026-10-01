@@ -14,11 +14,11 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright. Проекты setup и chromium из урока авторизации должны работать. Код нового теста не содержит вход: setup подготовит сессию учебного аккаунта автоматически.
+Продолжайте в palmekaprocode-js-pw. Проекты setup и chromium из урока авторизации должны работать. Код нового теста не содержит вход: setup подготовит сессию учебного аккаунта автоматически.
 
 Откройте https://palmekaprocode.ru/practice/text-box вручную. На странице есть поля "Имя и фамилия" и "Электронная почта", кнопка "Отправить" и блок "Результат", который появляется после отправки.
 
-- Создайте папки tests/text-box/pages и tests/text-box/helpers в проекте qa-playwright.
+- Создайте папки tests/text-box/pages и tests/text-box/helpers в проекте palmekaprocode-js-pw.
 - Убедитесь, что команда из архитектурного урока для training-field.spec.js дала 2 passed.
 - Оставьте playwright.config.js и tests/auth.setup.js без изменений. Все новые файлы ниже имеют расширение .js.
 
@@ -63,7 +63,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла по указанным путям. В корне qa-playwright выполните npx playwright test tests/text-box/text-box.spec.js --project=chromium --reporter=list.
+Сохраните три файла по указанным путям. В корне palmekaprocode-js-pw выполните npx playwright test tests/text-box/text-box.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup из урока авторизации, затем тест формы. Последняя строка успешного запуска содержит 2 passed. В блоке "Результат" тест найдет "Иван Петров" и "ivan@example.ru". Эти значения совпадают с объектом, переданным из спеки.
 

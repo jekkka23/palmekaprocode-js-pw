@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright с рабочей сессией из setup. Откройте https://palmekaprocode.ru/practice/modal-dialogs и нажмите "Маленькое окно" вручную.
+Продолжайте в palmekaprocode-js-pw с рабочей сессией из setup. Откройте https://palmekaprocode.ru/practice/modal-dialogs и нажмите "Маленькое окно" вручную.
 
 Новый тест лежит в tests/modal-dialogs. Создайте внутри папки pages и helpers. Конфиг и авторизацию не копируйте.
 
@@ -62,7 +62,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/modal-dialogs/modal-dialogs.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/modal-dialogs/modal-dialogs.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем основной тест. Последняя строка успешного запуска содержит 2 passed. Шаг 2 проверит текст маленького окна, а шаг 3 подтвердит его исчезновение.
 

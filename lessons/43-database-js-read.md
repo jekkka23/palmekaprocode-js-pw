@@ -11,7 +11,7 @@
 Проверьте эти условия до запуска примера.
 
 - В предыдущем уроке выполните SELECT в SQL-песочнице и посмотрите, как выглядят строки customers.
-- Используйте qa-playwright и playwright.config.js из урока авторизации: setup сохраняет cookie в playwright/.auth/student.json, а проект chromium читает ее для request.
+- Используйте palmekaprocode-js-pw и playwright.config.js из урока авторизации: setup сохраняет cookie в playwright/.auth/student.json, а проект chromium читает ее для request.
 - Работайте под учебным аккаунтом с доступом к полю. Bearer-токен REST API для этого эндпоинта не нужен.
 
 ## Сначала разберем слова
@@ -46,7 +46,7 @@
 Выполняйте шаги по порядку.
 
 - Сохраните файл tests/database/customers-sql.spec.js. Проверьте, что в tests/auth.setup.js входите под аккаунтом с доступом к полю.
-- В корне qa-playwright выполните npx playwright test tests/database/customers-sql.spec.js --project=chromium --reporter=list. Setup создаст свежую cookie, затем тест отправит SELECT.
+- В корне palmekaprocode-js-pw выполните npx playwright test tests/database/customers-sql.spec.js --project=chromium --reporter=list. Setup создаст свежую cookie, затем тест отправит SELECT.
 
 ## Какой результат ожидать
 

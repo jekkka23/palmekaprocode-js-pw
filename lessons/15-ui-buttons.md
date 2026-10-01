@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после урока веб-таблицы. Новый тест использует тот же setup и отдельную структуру из трех файлов.
+Продолжайте в palmekaprocode-js-pw после урока веб-таблицы. Новый тест использует тот же setup и отдельную структуру из трех файлов.
 
 Откройте https://palmekaprocode.ru/practice/buttons под учебным аккаунтом. В Elements найдите button с id single-click, double-click и right-click, а также блок button-result.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/buttons/buttons.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/buttons/buttons.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. В блоке результата появятся три сообщения, по одному для каждого действия.
 

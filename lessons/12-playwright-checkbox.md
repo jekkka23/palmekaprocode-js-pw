@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после урока про текстовые поля. Конфиг Playwright и tests/auth.setup.js уже создают сохраненную сессию; новый тест ее использует и не повторяет вход.
+Продолжайте в palmekaprocode-js-pw после урока про текстовые поля. Конфиг Playwright и tests/auth.setup.js уже создают сохраненную сессию; новый тест ее использует и не повторяет вход.
 
 Откройте https://palmekaprocode.ru/practice/check-box под учебным аккаунтом. В дереве найдите "Рабочий стол", вложенные "Заметки" и "Команды" и блок "Результат" под деревом.
 
@@ -63,7 +63,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/check-box/check-box.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/check-box/check-box.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup и сохранит вход учебного аккаунта, затем выполнится тест чекбоксов. Итог успешного запуска - 2 passed. После выбора "Рабочего стола" блок результата содержит ровно "Рабочий стол, Заметки, Команды".
 

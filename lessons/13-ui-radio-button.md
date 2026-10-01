@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после урока чекбоксов. Сохраненная сессия и структура страницы, хелпера и спеки уже знакомы.
+Продолжайте в palmekaprocode-js-pw после урока чекбоксов. Сохраненная сессия и структура страницы, хелпера и спеки уже знакомы.
 
 Откройте https://palmekaprocode.ru/practice/radio-button под учебным аккаунтом. В Elements найдите input с id radio-yes, заблокированный radio-no и блок результата radio-result. Проверьте каждый XPath через поиск панели.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/radio-button/radio-button.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/radio-button/radio-button.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. После выбора появится строка "Вы выбрали: Да".
 

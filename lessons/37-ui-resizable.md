@@ -48,7 +48,7 @@ XPath выбирает блок. После чтения boundingBox ведем 
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/resizable/resizable.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/resizable/resizable.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Свободный блок станет шире и выше исходного.
 

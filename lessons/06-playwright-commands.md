@@ -26,13 +26,13 @@ Playwright управляет браузером программно: откр�
 
 ## Что уже должно работать
 
-Используйте папку qa-playwright из урока первого запуска. В ней уже есть package.json с type: module, установленный @playwright/test и playwright.config.js с baseURL https://palmekaprocode.ru и browserName chromium. Файлы проекта оставьте как есть.
+Используйте корень palmekaprocode-js-pw из прошлого урока. Зависимость @playwright/test установлена в корне, а вводный конфиг с baseURL и Chromium лежит в intro/qa-playwright/playwright.config.js. Файлы проекта оставьте как есть.
 
-Учебный аккаунт test-auto@palmekaprocode.ru с паролем test-auto имеет доступ к тренировочному полю. До урока сохранения сессии каждая самостоятельная спека вводит эти данные сама. Проверка npx playwright test tests/training-field.spec.js --reporter=list должна дать 1 passed.
+Учебный аккаунт test-auto@palmekaprocode.ru с паролем test-auto имеет доступ к тренировочному полю. До урока сохранения сессии каждая самостоятельная спека вводит эти данные сама. Проверка npx playwright test intro/qa-playwright/tests/training-field.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list должна дать 1 passed.
 
-- Создайте новый файл tests/playwright-commands.spec.js в существующей папке tests.
+- Создайте новый файл intro/qa-playwright/tests/playwright-commands.spec.js рядом с первым тестом.
 - Откройте вручную https://palmekaprocode.ru/practice/text-box, затем check-box и select-menu под учебным аккаунтом.
-- Не меняйте конфиг и не создавайте файл сессии: это тема следующего урока.
+- Не меняйте вводный конфиг и не создавайте файл сессии: это тема следующего урока.
 
 ## Новые слова без путаницы
 
@@ -64,14 +64,14 @@ Playwright управляет браузером программно: откр�
 
 Команды внутри спеки управляют браузером, а команда npx playwright test запускает сами спеки из терминала. Эти варианты используют уже установленный пакет проекта.
 
-- npx playwright test tests/playwright-commands.spec.js --reporter=list - выполнить только новый файл и увидеть построчный отчет.
-- npx playwright test tests/playwright-commands.spec.js --headed --reporter=list - выполнить тот же тест с видимым окном браузера.
-- npx playwright test --list - показать найденные тесты без запуска браузера.
+- npx playwright test intro/qa-playwright/tests/playwright-commands.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list - выполнить только новый файл и увидеть построчный отчет.
+- npx playwright test intro/qa-playwright/tests/playwright-commands.spec.js --config intro/qa-playwright/playwright.config.js --headed --reporter=list - выполнить тот же тест с видимым окном браузера.
+- npx playwright test --config intro/qa-playwright/playwright.config.js --list - показать найденные тесты без запуска браузера.
 - npx playwright test --help - посмотреть доступные параметры команды.
 
-## Полный пример: tests/playwright-commands.spec.js
+## Полный пример: intro/qa-playwright/tests/playwright-commands.spec.js
 
-Скопируйте весь код в tests/playwright-commands.spec.js, включая комментарии под строками. Здесь один самостоятельный тест: он входит под учебным аккаунтом, затем проходит три тренажера в той же вкладке.
+Скопируйте весь код в intro/qa-playwright/tests/playwright-commands.spec.js, включая комментарии под строками. Здесь один самостоятельный тест: он входит под учебным аккаунтом, затем проходит три тренажера в той же вкладке.
 
 [Открыть готовый файл](../intro/qa-playwright/tests/playwright-commands.spec.js)
 
@@ -79,7 +79,7 @@ Playwright управляет браузером программно: откр�
 
 ## Как запустить и какой вывод ожидать
 
-В корне qa-playwright сохраните файл tests/playwright-commands.spec.js. Запустите только его командой npx playwright test tests/playwright-commands.spec.js --reporter=list. Старые спеки команда не запускает.
+В корне palmekaprocode-js-pw сохраните файл intro/qa-playwright/tests/playwright-commands.spec.js. Запустите только его командой npx playwright test intro/qa-playwright/tests/playwright-commands.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list. Первая спека этой командой не запускается.
 
 Ожидаемый итог - 1 passed. Это один test, даже если внутри него три перехода: отдельными тестами они пока не объявлены. После заполнения текстовой формы появится почта anna@example.ru; чекбокс покажет "Рабочий стол, Заметки, Команды"; селект сохранит роль mentor. Playwright покажет название теста и время, которое зависит от сети и компьютера.
 

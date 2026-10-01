@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после урока файлов. Откройте тренажер и посмотрите, как кнопки меняются через 2 и 5 секунд после загрузки.
+Продолжайте в palmekaprocode-js-pw после урока файлов. Откройте тренажер и посмотрите, как кнопки меняются через 2 и 5 секунд после загрузки.
 
 Откройте https://palmekaprocode.ru/practice/dynamic-properties под учебным аккаунтом. В Elements найдите button с id enable-after и visible-after. Второй отсутствует в DOM до истечения таймера.
 
@@ -48,7 +48,7 @@ Playwright повторяет ассерт, пока условие не вып�
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/dynamic-properties/dynamic-properties.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/dynamic-properties/dynamic-properties.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Примерно через 2 секунды первая кнопка станет доступной, примерно через 5 секунд появится вторая; итог 2 passed.
 

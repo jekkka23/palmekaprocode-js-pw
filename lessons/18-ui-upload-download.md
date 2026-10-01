@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после проверки ресурсов. Для выбора создадим файл в памяти через Buffer; браузер увидит его как обычный локальный файл.
+Продолжайте в palmekaprocode-js-pw после проверки ресурсов. Для выбора создадим файл в памяти через Buffer; браузер увидит его как обычный локальный файл.
 
 Откройте https://palmekaprocode.ru/practice/upload-download под учебным аккаунтом. В Elements найдите input с id upload-file, строку uploaded-file-name и ссылку download-file с атрибутом download.
 
@@ -49,7 +49,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/upload-download/upload-download.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/upload-download/upload-download.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Страница покажет lesson.txt, а событие скачивания предложит qa-test-file.txt.
 

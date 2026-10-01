@@ -14,7 +14,7 @@
 
 ## Что уже должно быть готово
 
-Используйте ту же папку qa-playwright. В прошлом уроке вы настроили playwright.config.js с проектами setup и chromium, создали tests/auth.setup.js и проверили, что тест с сохраненной сессией открывает /practice/text-box. Эти файлы остаются на месте.
+Используйте ту же папку palmekaprocode-js-pw. В прошлом уроке вы настроили playwright.config.js с проектами setup и chromium, создали tests/auth.setup.js и проверили, что тест с сохраненной сессией открывает /practice/text-box. Эти файлы остаются на месте.
 
 Новый код лежит внутри tests/training-field. Папки pages и helpers создайте в редакторе или через проводник. Все файлы ниже имеют расширение .js, потому что в package.json уже включен type: module.
 
@@ -67,7 +67,7 @@
 
 ## Как запустить и какой вывод ожидать
 
-Проверьте, что терминал открыт в qa-playwright и все три файла сохранены по указанным путям. Выполните npx playwright test tests/training-field/training-field.spec.js --project=chromium --reporter=list.
+Проверьте, что терминал открыт в palmekaprocode-js-pw и все три файла сохранены по указанным путям. Выполните npx playwright test tests/training-field/training-field.spec.js --project=chromium --reporter=list.
 
 Playwright сначала выполнит tests/auth.setup.js и обновит student.json, затем запустит новую спеку. В выводе будут два успешных теста и итог 2 passed. Время выполнения может отличаться. В отчете новой спеки будут два test.step с названиями из хелпера.
 

@@ -12,7 +12,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после аккордеона. Сохраненный setup откроет тренажер без нового входа.
+Продолжайте в palmekaprocode-js-pw после аккордеона. Сохраненный setup откроет тренажер без нового входа.
 
 Откройте https://palmekaprocode.ru/practice/auto-complete под учебным аккаунтом. Найдите input с id auto-complete-input, список color-suggestions и теги внутри color-tags. Введите Син вручную и посмотрите, когда появляется кнопка Синий.
 
@@ -48,7 +48,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/auto-complete/auto-complete.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/auto-complete/auto-complete.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Появится тег Синий, а строка ввода станет пустой.
 

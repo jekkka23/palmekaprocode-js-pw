@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright с рабочим setup. Откройте https://palmekaprocode.ru/practice/selectable под учебным аккаунтом: там шесть кнопок "Элемент 1" - "Элемент 6" и блок "Выбрано".
+Продолжайте в palmekaprocode-js-pw с рабочим setup. Откройте https://palmekaprocode.ru/practice/selectable под учебным аккаунтом: там шесть кнопок "Элемент 1" - "Элемент 6" и блок "Выбрано".
 
 Создайте tests/selectable/pages и tests/selectable/helpers. Авторизацию и конфиг из предыдущих уроков не копируйте.
 
@@ -62,7 +62,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/selectable/selectable.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/selectable/selectable.spec.js --project=chromium --reporter=list.
 
 Setup подготовит сессию, затем пройдет тест выбора. Последняя строка успешного запуска - 2 passed. В шаге 2 результат будет "1, 3", в шаге 3 - "3".
 

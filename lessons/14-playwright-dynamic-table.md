@@ -14,7 +14,7 @@
 
 ## Что подготовить
 
-Продолжайте в qa-playwright с рабочим setup. Откройте https://palmekaprocode.ru/practice/web-tables под учебным аккаунтом. Кнопка "Добавить запись" открывает форму, а после сохранения строка появляется в таблице.
+Продолжайте в palmekaprocode-js-pw с рабочим setup. Откройте https://palmekaprocode.ru/practice/web-tables под учебным аккаунтом. Кнопка "Добавить запись" открывает форму, а после сохранения строка появляется в таблице.
 
 Создайте tests/web-tables/pages и tests/web-tables/helpers. Данные предыдущих тренажеров этому тесту не нужны.
 
@@ -62,7 +62,7 @@
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/web-tables/web-tables.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/web-tables/web-tables.spec.js --project=chromium --reporter=list.
 
 Setup подготовит сессию, затем основной тест создаст строку. Успешный запуск заканчивается 2 passed. Новая строка содержит "Мария" и "maria.table@example.ru".
 

@@ -10,10 +10,10 @@
 
 Проверьте эти условия до запуска примера.
 
-- У вас уже есть qa-playwright с package.json, package-lock.json, playwright.config.js и тестами из предыдущих уроков. Перед публикацией запустите хотя бы одну готовую спеку.
+- У вас уже есть palmekaprocode-js-pw с package.json, package-lock.json, playwright.config.js и тестами из предыдущих уроков. Перед публикацией запустите хотя бы одну готовую спеку.
 - Добавьте в .gitignore строки playwright/.auth/, test-results/, playwright-report/, .env и node_modules/. Проверьте git status: student.json и файлы с токенами не должны появиться в списке.
-- Если qa-playwright еще не репозиторий, выполните в его корне git init -b main. На GitHub создайте пустой репозиторий qa-playwright без автоматического README и скопируйте его полный HTTPS-адрес.
-- Привяжите свой адрес командой git remote add origin https://github.com/ВАШ_ЛОГИН/qa-playwright.git, заменив ВАШ_ЛОГИН на свое имя. Проверьте адрес через git remote -v.
+- Если palmekaprocode-js-pw еще не репозиторий, выполните в его корне git init -b main. На GitHub создайте пустой репозиторий palmekaprocode-js-pw без автоматического README и скопируйте его полный HTTPS-адрес.
+- Привяжите свой адрес командой git remote add origin https://github.com/ВАШ_ЛОГИН/palmekaprocode-js-pw.git, заменив ВАШ_ЛОГИН на свое имя. Проверьте адрес через git remote -v.
 - Создайте основную ветку с уже готовым проектом: git add tests playwright.config.js package.json package-lock.json .gitignore, затем git commit -m "собран учебный проект Playwright" и git push -u origin main. Убедитесь, что GitHub показывает файлы в main.
 - В настройках Actions задайте переменную BASE_URL и секреты QA_EMAIL, QA_PASSWORD, TRAINING_API_TOKEN. Для REST API скопируйте токен из своего тренажера.
 
@@ -38,15 +38,19 @@
 
 ## Команды для ветки с GitHub Actions
 
-Сначала создайте .github/workflows/playwright.yml из следующего блока. Затем проверьте git status: там не должно быть сохраненной сессии или файла с токеном. Репозиторий origin уже привязан на шаге подготовки.
+Готовый пример в учебной репе лежит в examples/github/playwright.yml. Сначала сохраните YAML из блока ниже по этому пути. Для своего GitHub Actions скопируйте его в .github/workflows/playwright.yml: только там GitHub запускает workflow. Затем проверьте git status; репозиторий origin уже привязан.
 
-```yaml
+```bash
 git status
 # Проверяем, какие файлы попадут в историю и нет ли student.json.
 git switch -c ci/playwright
 # Создаем ветку от main для автоматического запуска.
-git add .github/workflows/playwright.yml
-# Добавляем новый workflow; остальной учебный код уже лежит в main.
+mkdir -p .github/workflows
+# Создаем рабочую папку GitHub Actions в своей копии проекта.
+cp examples/github/playwright.yml .github/workflows/playwright.yml
+# Копируем готовый учебный пример туда, где GitHub его запустит.
+git add examples/github/playwright.yml .github/workflows/playwright.yml
+# Добавляем учебный пример и его рабочую копию; остальной код уже в main.
 git diff --cached --stat
 # Еще раз смотрим список подготовленных файлов перед коммитом.
 git commit -m "добавлен запуск Playwright в Actions"
@@ -57,9 +61,9 @@ git push -u origin ci/playwright
 
 **Обратите внимание.** Для GitHub используется Pull Request. Секреты для GitHub Actions задаются в настройках репозитория, а не внутри workflow-файла.
 
-## Автоматический запуск в GitHub Actions
+## Готовый файл: examples/github/playwright.yml
 
-Создайте .github/workflows/playwright.yml. В нем запускаются четыре уже изученные читающие проверки; тест INSERT с reset не входит в общий прогон. Каждый комментарий под строкой можно оставить в YAML.
+Сохраните пример по пути examples/github/playwright.yml. В нем запускаются четыре уже изученные читающие проверки; тест INSERT с reset не входит в общий прогон. Комментарии под строками можно оставить в YAML. Команда cp из блока выше создаст рабочую копию для GitHub Actions.
 
 ```yaml
 name: playwright-tests
@@ -106,7 +110,7 @@ jobs:
 
 Выполняйте шаги по порядку.
 
-- В корне qa-playwright создайте .gitignore, инициализируйте main и отправьте первый коммит по шагам подготовки. Затем создайте .github/workflows/playwright.yml и выполните команды для ветки ci/playwright по порядку.
+- В корне palmekaprocode-js-pw создайте .gitignore, инициализируйте main и отправьте первый коммит по шагам подготовки. Сохраните пример в examples/github/playwright.yml, затем скопируйте его в .github/workflows/playwright.yml командами из блока выше.
 - Откройте Pull Request из ci/playwright в main и вкладку Actions. После настройки vars.BASE_URL и трех secrets запустится указанный набор из четырех тестов.
 
 ## Какой результат ожидать

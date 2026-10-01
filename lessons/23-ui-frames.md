@@ -12,7 +12,7 @@ XPath основной страницы не проходит внутрь ifram
 
 ## Что подготовить
 
-Продолжайте в qa-playwright после browser alert. Откройте DevTools и найдите iframe с id frame-one; его содержимое находится в отдельном документе.
+Продолжайте в palmekaprocode-js-pw после browser alert. Откройте DevTools и найдите iframe с id frame-one; его содержимое находится в отдельном документе.
 
 Откройте https://palmekaprocode.ru/practice/frames под учебным аккаунтом. Найдите iframe с id frame-one, раскройте его документ в Elements и найдите h1 с id frame-heading.
 
@@ -48,7 +48,7 @@ page.frameLocator получает XPath самого iframe. Затем locator
 
 ## Как запустить и что увидеть
 
-Сохраните три файла. В корне qa-playwright выполните npx playwright test tests/frames/frames.spec.js --project=chromium --reporter=list.
+Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/frames/frames.spec.js --project=chromium --reporter=list.
 
 Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. В первом iframe тест найдет заголовок "Первый фрейм".
 
