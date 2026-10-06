@@ -3,6 +3,8 @@ playwright/.auth/
 test-results/
 playwright-report/
 blob-report/
+allure-results/
+allure-report/
 .env
 .env.*
 .DS_Store
