@@ -1,5 +1,3 @@
-// Подключаем встроенный в Node.js SQLite-клиент для проверки строки в БД.
-import { DatabaseSync } from "node:sqlite";
 // Берем шаги test.step и проверки expect из Playwright.
 import { test, expect } from "@playwright/test";
 // Подключаем объект страницы с XPath-локаторами и действиями.
@@ -79,23 +77,15 @@ export async function runOpenLessonFullCycle(page, request, account) {
 
   // Четвертый шаг в отчете: сверяем тот же заказ в SQLite.
   await test.step("Шаг 4. Сверить заказ и клиента в БД", async () => {
-    // Берем путь к базе из переменной запуска Jenkins.
-    const databasePath = process.env.QA_SQLITE_DB_PATH;
-    // Объясняем причину падения, если путь не передали.
-    expect(databasePath, "Задайте QA_SQLITE_DB_PATH с путем к SQLite базе сайта").toBeTruthy();
-    // Открываем базу в режиме только чтения.
-    const database = new DatabaseSync(databasePath, { readOnly: true });
-    // Закроем соединение даже тогда, когда проверка не пройдет.
-    try {
-      // Соединяем учебный заказ, клиента и владельца токена; выбираем те же поля, что отдает API.
-      const saved = database.prepare("SELECT o.id, o.customer_id AS customerId, c.name AS customerName, o.status, o.delivery_date AS deliveryDate, o.total, o.created_at AS createdAt, o.updated_at AS updatedAt FROM practice_api_orders o JOIN practice_api_customers c ON c.user_id = o.user_id AND c.id = o.customer_id JOIN practice_api_tokens t ON t.user_id = o.user_id WHERE t.token = ? AND o.id = ?").get(apiToken, orderId);
-      // Сверяем строку БД с ответом, который увидели через UI.
-      expect(saved).toMatchObject(uiOrder);
-      // Пишем в лог результат проверки базы.
-      console.log(`4. БД содержит тот же учебный заказ ${orderId}`);
-    } finally {
-      // Освобождаем SQLite-соединение после чтения.
-      database.close();
-    }
+    // Через сессию браузера вызываем ручку, которая делает SQL JOIN в базе сайта.
+    const response = await page.request.get("/api/practice/sql/api-order");
+    // Проверяем успешный HTTP-статус чтения БД.
+    expect(response.status()).toBe(200);
+    // Читаем результат SQL из респонса сайта.
+    const saved = await response.json();
+    // Сверяем все поля строки БД с заказом, который увидели через UI и API.
+    expect(saved.row).toEqual(uiOrder);
+    // Пишем в лог результат проверки базы.
+    console.log(`4. БД содержит тот же учебный заказ ${orderId}`);
   });
 }
