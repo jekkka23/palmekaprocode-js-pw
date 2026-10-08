@@ -29,7 +29,7 @@ export class PracticeFormPage {
   async open() {
   // Объявляем переход к учебной форме.
     await this.page.goto("/practice/practice-form");
-    // Открываем тренажер с сохраненной сессией.
+    // Открываем тренажер. Вход уже сделала функция login в спеке.
   }
   // Завершаем метод open.
   async submit(data) {

@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/resizable под учебным аккаунтом. Найдите div с id resize-box-free. В Styles проверьте resize: both; ручка изменения находится у правого нижнего края.
 
 - Создайте tests/resizable/pages и tests/resizable/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ XPath выбирает блок. После чтения boundingBox ведем 
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/resizable/resizable.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Свободный блок станет шире и выше исходного.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Свободный блок станет шире и выше исходного.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/resizable/resizable.spec.js --project=chromium --repor
 
 - Уберите mouse.down(). Размер не изменится, шаг 3 упадет: 1 passed и 1 failed.
 - Верните mouse.down и замените проверку ширины на toBeLessThan. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните toBeGreaterThan: 2 passed.
+- Верните toBeGreaterThan: 1 passed.

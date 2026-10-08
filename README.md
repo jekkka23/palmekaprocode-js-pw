@@ -39,7 +39,7 @@ npx playwright test intro/qa-playwright/tests/playwright-commands.spec.js --conf
 
 ## Дальнейшие уроки
 
-Корневой [playwright.config.js](playwright.config.js) сначала запускает [tests/auth.setup.js](tests/auth.setup.js), сохраняет сессию локально и передает ее остальным тестам. Например:
+Вход делает общий хелпер [tests/helpers/login.js](tests/helpers/login.js). Спека вызывает `login(page)` в начале. Почта и пароль записаны только в этом файле. Например:
 
 ```bash
 npx playwright test tests/text-box/text-box.spec.js --project=chromium --reporter=list
@@ -52,7 +52,7 @@ export TRAINING_API_TOKEN="токен_из_тренажера"
 npm run test:showcase
 ```
 
-При рабочем доступе результат - `5 passed`: setup и четыре теста. Сохраненная сессия, токен и результаты прогонов исключены из Git. Локально setup использует открытый учебный аккаунт из курса. Для другого аккаунта задайте `QA_EMAIL` и `QA_PASSWORD`; в CI эти переменные обязательны. Адрес сайта можно переопределить через `BASE_URL`.
+При рабочем доступе результат - `4 passed`: четыре теста. Каждый сам вызывает `login`. Токен и результаты прогонов исключены из Git. Для другого аккаунта задайте `QA_EMAIL` и `QA_PASSWORD`. Адрес сайта можно переопределить через `BASE_URL`.
 
 ## Запись в БД и разбор падения
 

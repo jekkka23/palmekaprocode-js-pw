@@ -23,7 +23,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       # Устанавливаем Chromium и системные библиотеки.
       - run: npx playwright test tests/text-box/text-box.spec.js tests/accordion/accordion.spec.js tests/api/customers.spec.js tests/database/customers-sql.spec.js --project=chromium
-      # Запускаем четыре читающих теста; setup подключится по зависимости.
+      # Запускаем четыре читающих теста. Вход делает tests/helpers/login.js внутри спеки.
         env:
         # Передаем адрес и доступы только этой команде.
           BASE_URL: ${{ vars.BASE_URL }}

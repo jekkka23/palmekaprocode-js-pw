@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/sortable под учебным аккаунтом. Найдите sortable-list, карточки со span Один и Три, затем p в sort-result. XPath строим по тексту карточки, а не по ее id, потому что id зависит от позиции.
 
 - Создайте tests/sortable/pages и tests/sortable/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/sortable/sortable.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Порядок станет Два - Три - Один - Четыре - Пять - Шесть.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Порядок станет Два - Три - Один - Четыре - Пять - Шесть.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/sortable/sortable.spec.js --project=chromium --reporte
 
 - Замените цель Три на Четыре в XPath. Новый порядок отличается, шаг 3 упадет: 1 passed и 1 failed.
 - Верните цель. Замените ожидание результата на исходный порядок. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните новый порядок: 2 passed.
+- Верните новый порядок: 1 passed.

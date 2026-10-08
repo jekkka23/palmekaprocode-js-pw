@@ -17,7 +17,7 @@ export class SelectablePage {
   async open() {
   // Объявляем переход к тренажеру.
     await this.page.goto("/practice/selectable");
-    // Открываем страницу с сохраненной сессией.
+    // Открываем страницу. Вход уже сделала функция login в спеке.
   }
   // Завершаем метод open.
   async chooseFirstAndThird() {

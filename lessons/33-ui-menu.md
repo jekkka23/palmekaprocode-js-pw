@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/menu под учебным аккаунтом. Найдите nav с id menu, button menu-products, button menu-mobile и a menu-android. Сравните их вложенность в DOM.
 
 - Создайте tests/menu/pages и tests/menu/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ XPath находит три конкретных узла. Сначала hover 
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/menu/menu.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. После двух наведений ссылка Android станет видимой.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. После двух наведений ссылка Android станет видимой.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/menu/menu.spec.js --project=chromium --reporter=list
 
 - Уберите наведение на mobile. Android останется скрытым, шаг 3 упадет: 1 passed и 1 failed.
 - Верните наведение и замените XPath android на menu-ios. Проверка текста Android в шаге 3 упадет: 1 passed и 1 failed.
-- Верните id: 2 passed.
+- Верните id: 1 passed.

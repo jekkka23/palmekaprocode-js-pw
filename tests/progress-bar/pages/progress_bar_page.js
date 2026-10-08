@@ -17,7 +17,7 @@ export class ProgressBarPage {
   async open() {
   // Объявляем переход на тренажер.
     await this.page.goto("/practice/progress-bar");
-    // Открываем его с сохраненной сессией.
+    // Открываем страницу. Вход уже сделала функция login в спеке.
   }
   // Завершаем метод open.
   async act() {

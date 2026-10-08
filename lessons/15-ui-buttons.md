@@ -12,12 +12,12 @@
 
 ## Что подготовить
 
-Продолжайте в palmekaprocode-js-pw после урока веб-таблицы. Новый тест использует тот же setup и отдельную структуру из трех файлов.
+Продолжайте в palmekaprocode-js-pw после урока веб-таблицы. Новый тест вызывает login из tests/helpers/login.js и лежит в трех файлах.
 
 Откройте https://palmekaprocode.ru/practice/buttons под учебным аккаунтом. В Elements найдите button с id single-click, double-click и right-click, а также блок button-result.
 
 - Создайте tests/buttons/pages и tests/buttons/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/buttons/buttons.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. В блоке результата появятся три сообщения, по одному для каждого действия.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. В блоке результата появятся три сообщения, по одному для каждого действия.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/buttons/buttons.spec.js --project=chromium --reporter=
 
 - Замените dblclick() на click() для кнопки double. Основной тест упадет на проверке двойного клика в шаге 3: 1 passed и 1 failed.
 - Верните dblclick(). Замените ожидаемую фразу правого клика на "Не было клика". Шаг 3 упадет: 1 passed и 1 failed.
-- Верните исходный текст: 2 passed.
+- Верните исходный текст: 1 passed.

@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/links под учебным аккаунтом. В Elements найдите a с id practice-link внутри links-playground и его href=/practice. Сравните это с адресом после клика.
 
 - Создайте tests/links/pages и tests/links/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/links/links.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Текущая вкладка перейдет на /practice и покажет список тренажеров.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Текущая вкладка перейдет на /practice и покажет список тренажеров.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/links/links.spec.js --project=chromium --reporter=list
 
 - Замените XPath practiceLink на путь с id missing-link. Основной тест упадет на шаге 2: 1 passed и 1 failed.
 - Верните XPath. В хелпере поменяйте ожидаемый адрес на /account. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните адрес: 2 passed.
+- Верните адрес: 1 passed.

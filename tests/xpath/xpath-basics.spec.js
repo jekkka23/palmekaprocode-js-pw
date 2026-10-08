@@ -1,7 +1,11 @@
 import { test, expect } from "@playwright/test";
+import { login } from "../helpers/login.js";
+// login — общий вход. Почта и пароль лежат в tests/helpers/login.js, в этой спеке их нет.
 // Подключаем запуск теста и проверки Playwright.
 test("XPath находит поля и результат", async ({ page }) => {
-// Начинаем один самостоятельный тест с сохраненной сессией.
+  await login(page);
+  // Вызываем общий хелпер: он открывает /login и входит. Дальше тест открывает тренажер.
+// Начинаем тест. Вход уже сделала функция login выше.
   await page.goto("/practice/text-box");
   // Открываем тренажер текстовых полей.
   const name = page.locator("xpath=//form[@id='text-box-form']//input[@id='full-name']");

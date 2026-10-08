@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/nested-frames под учебным аккаунтом. На основной странице есть iframe parent-frame. Внутри него расположен iframe child-frame, а в дочернем DOM - p с id child-frame-text.
 
 - Создайте tests/nested-frames/pages и tests/nested-frames/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/nested-frames/nested-frames.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Тест прочитает "Дочерний фрейм" внутри двух уровней iframe.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Тест прочитает "Дочерний фрейм" внутри двух уровней iframe.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/nested-frames/nested-frames.spec.js --project=chromium
 
 - Во втором frameLocator замените child-frame на missing-frame. Шаг 3 упадет: 1 passed и 1 failed.
 - Верните id. Во внутреннем XPath замените child-frame-text на parent-frame-text. Этот p лежит на другом уровне, поэтому шаг 3 упадет: 1 passed и 1 failed.
-- Верните XPath: 2 passed.
+- Верните XPath: 1 passed.

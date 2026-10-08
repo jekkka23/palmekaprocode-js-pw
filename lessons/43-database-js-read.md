@@ -11,12 +11,12 @@
 Проверьте эти условия до запуска примера.
 
 - В предыдущем уроке выполните SELECT в SQL-песочнице и посмотрите, как выглядят строки customers.
-- Используйте palmekaprocode-js-pw и playwright.config.js из урока авторизации: setup сохраняет cookie в playwright/.auth/student.json, а проект chromium читает ее для request.
+- Используйте palmekaprocode-js-pw. Спека вызывает login из tests/helpers/login.js и отправляет SQL через page.request с cookie этого входа.
 - Работайте под учебным аккаунтом с доступом к полю. Bearer-токен REST API для этого эндпоинта не нужен.
 
 ## Сначала разберем слова
 
-Теперь автоматизируем SQL через JavaScript. Код Playwright отправит запрос к учебному SQL-эндпоинту под сохраненной сессией ученика. Сервер выполнит SQL в личной базе и вернет JSON с колонками и строками.
+Теперь автоматизируем SQL через JavaScript. Код Playwright отправит запрос к учебному SQL-эндпоинту под вызовом login ученика. Сервер выполнит SQL в личной базе и вернет JSON с колонками и строками.
 
 - **SQL-запрос**: текст команды к базе; здесь его выполняет учебный сервер через /api/practice/sql.
 - **Результат SELECT**: ответ с columns (именами столбцов) и rows (массивом строк-объектов).
@@ -27,7 +27,7 @@
 
 Для первого теста возьмем задачу tables-customers из раздела "Таблицы и связи". Проверим, что сервер ответил 200, вернул именно id и name, строки имеют числовой id, а эталонная проверка задачи прошла.
 
-- Использовать storageState из урока авторизации
+- Вызвать login из tests/helpers/login.js
 - Отправить POST с action: execute
 - Проверить статус 200
 - Сравнить columns и структуру rows
@@ -45,15 +45,15 @@
 
 Выполняйте шаги по порядку.
 
-- Сохраните файл tests/database/customers-sql.spec.js. Проверьте, что в tests/auth.setup.js входите под аккаунтом с доступом к полю.
+- Сохраните файл tests/database/customers-sql.spec.js. Проверьте, что в tests/helpers/login.js входите под аккаунтом с доступом к полю.
 - В корне palmekaprocode-js-pw выполните npx playwright test tests/database/customers-sql.spec.js --project=chromium --reporter=list. Setup создаст свежую cookie, затем тест отправит SELECT.
 
 ## Какой результат ожидать
 
-Успешный итог - 2 passed: setup и проверка SELECT. В JSON будут columns ["id", "name"], массив rows с числовыми id и evaluation.passed: true. Число строк зависит от личных данных аккаунта, поэтому фиксируем форму и правило запроса.
+Успешный итог - 1 passed. Спека сначала вызывает login из tests/helpers/login.js, затем отправляет SELECT. В JSON будут columns ["id", "name"], массив rows с числовыми id и evaluation.passed: true. Число строк зависит от личных данных аккаунта, поэтому фиксируем форму и правило запроса.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/database/customers-sql.spec.js --project=chromium --re
 
 - Замените в SQL только ORDER BY id на ORDER BY id DESC. Статус останется 200 и строки придут массивом, но evaluation.passed станет false: итог 1 passed и 1 failed.
 - Верните порядок и уберите name из SELECT. Теперь проверка columns упадет: сервер вернет только id, итог 1 passed и 1 failed.
-- Верните исходный SELECT. Итог снова 2 passed; объясните, почему ассерт проверяет и columns, и evaluation.
+- Верните исходный SELECT. Итог снова 1 passed; объясните, почему ассерт проверяет и columns, и evaluation.

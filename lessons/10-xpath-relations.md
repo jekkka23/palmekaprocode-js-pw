@@ -14,11 +14,11 @@
 
 ## Что подготовить
 
-Продолжайте в palmekaprocode-js-pw после первого XPath-урока. Сохраненная сессия и tests/xpath/xpath-basics.spec.js уже работают.
+Продолжайте в palmekaprocode-js-pw после первого XPath-урока. Вызов login и tests/xpath/xpath-basics.spec.js уже работают.
 
 Откройте в браузере https://palmekaprocode.ru/practice/check-box и https://palmekaprocode.ru/practice/web-tables. В DevTools посмотрите label вокруг чекбокса и td с почтой Ирины в строке таблицы.
 
-- Проверьте, что xpath-basics.spec.js отдельно дает 2 passed.
+- Проверьте, что xpath-basics.spec.js отдельно дает 1 passed.
 - Создайте tests/xpath/xpath-relations.spec.js.
 - До запуска теста проверьте оба XPath в поиске панели Elements.
 
@@ -60,10 +60,10 @@
 
 Сохраните файл в tests/xpath/xpath-relations.spec.js. В корне palmekaprocode-js-pw выполните npx playwright test tests/xpath/xpath-relations.spec.js --project=chromium --reporter=list.
 
-Setup выполнится один раз, затем пройдут два независимых теста. В конце успешного запуска будет 3 passed. Первый проверит дочерние галочки, второй - строку Ирины.
+В файле два теста. Каждый в начале вызывает login из tests/helpers/login.js. В конце успешного запуска будет 2 passed. Первый проверит дочерние галочки, второй - строку Ирины.
 
 ```text
-3 passed
+2 passed
 ```
 
 ## Команды для копирования
@@ -80,6 +80,6 @@ npx playwright test tests/xpath/xpath-relations.spec.js --project=chromium --rep
 
 Меняйте одно выражение за раз и возвращайте его после проверки.
 
-- В XPath desktop замените "Рабочий стол" на "Заметки". Первый тест упадет на проверке Команд, второй пройдет; итог 2 passed и 1 failed.
-- Верните подпись. В XPath строки замените irina@example.ru на nobody@example.ru. Табличный тест упадет на toHaveCount(1), а чекбоксы и setup пройдут; итог 2 passed и 1 failed.
-- Верните почту. Повторный запуск снова даст 3 passed.
+- В XPath desktop замените "Рабочий стол" на "Заметки". Первый тест упадет на проверке Команд, второй пройдет; итог 1 passed и 1 failed.
+- Верните подпись. В XPath строки замените irina@example.ru на nobody@example.ru. Табличный тест упадет на toHaveCount(1), а тест чекбоксов пройдет; итог 1 passed и 1 failed.
+- Верните почту. Повторный запуск снова даст 2 passed.

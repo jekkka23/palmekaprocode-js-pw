@@ -15,7 +15,7 @@ export class AccordionPage {
   async open() {
   // Объявляем открытие тренажера.
     await this.page.goto("/practice/accordion");
-    // Переходим на страницу с сохраненной сессией.
+    // Открываем страницу. Вход уже сделала функция login в спеке.
   }
   // Завершаем метод open.
   async toggleAutomation() {

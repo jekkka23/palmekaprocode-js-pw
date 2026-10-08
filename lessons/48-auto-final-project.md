@@ -10,7 +10,7 @@
 
 Проверьте эти условия до запуска примера.
 
-- Используйте palmekaprocode-js-pw после всех предыдущих уроков. Файлы страницы и хелпера формы, виджета и tests/auth.setup.js уже созданы; новые дубликаты не нужны.
+- Используйте palmekaprocode-js-pw после всех предыдущих уроков. Файлы страницы и хелпера формы, виджета и tests/helpers/login.js уже созданы; новые дубликаты не нужны.
 - Для API задайте TRAINING_API_TOKEN от того же учебного аккаунта. Читающие SQL-тесты используют cookie из setup. Проверку INSERT с отдельным аккаунтом в этот общий запуск не включаем.
 - Убедитесь, что .gitignore исключает playwright/.auth/ и токены. Итоговая карта ниже показывает существующие пути в готовой учебной репе.
 
@@ -39,7 +39,7 @@
 
 ```text
 playwright.config.js
-tests/auth.setup.js
+tests/helpers/login.js
 tests/text-box/text-box.spec.js
 tests/text-box/pages/text_box_page.js
 tests/text-box/helpers/functions_text_box.js
@@ -58,7 +58,7 @@ examples/github/playwright.yml
 Прочитайте каждую строку в том же порядке, что и в примере.
 
 - playwright.config.js задает baseURL, trace и зависимость основных тестов от setup.
-- tests/auth.setup.js один раз входит под учебным аккаунтом и сохраняет cookie; playwright/.auth/student.json существует только локально.
+- tests/helpers/login.js один раз входит под учебным аккаунтом и сохраняет cookie; tests/helpers/login.js существует только локально.
 - Три файла tests/text-box/ делят флоу формы на спеку, действия страницы и шаги хелпера.
 - Три файла tests/accordion/ так же делят проверку виджета. В каждом тесте своя новая вкладка.
 - tests/api/customers.spec.js проверяет REST API через Bearer-токен; tests/database/customers-sql.spec.js читает SQL через cookie.
@@ -77,7 +77,7 @@ examples/github/playwright.yml
 Setup сохранит вход, после него четыре независимых теста должны пройти: итог 5 passed. У формы и виджета отдельные вкладки; API читает клиентов через токен; БД читает покупателей через cookie. При падении смотрите первый красный шаг и trace из урока диагностики.
 
 ```text
-5 passed
+4 passed
 ```
 
 ## Команды для копирования
@@ -108,6 +108,6 @@ npm run test:showcase
 
 Меняйте по одному пункту, сначала предскажите итог, потом запустите пример и верните исходную строку.
 
-- Запустите только tests/text-box/text-box.spec.js. Ожидайте 2 passed: setup и одна проверка формы.
-- Запустите только tests/api/customers.spec.js с действующим токеном. Ожидайте 2 passed; удаление токена приведет к 1 passed и 1 failed с понятным сообщением.
-- Верните токен и запустите общий набор. Ожидайте 5 passed и объясните, почему число setup не умножается на четыре спеки.
+- Запустите только tests/text-box/text-box.spec.js. Ожидайте 1 passed.
+- Запустите только tests/api/customers.spec.js с действующим токеном. Ожидайте 1 passed; удаление токена приведет к 1 passed и 1 failed с понятным сообщением.
+- Верните токен и запустите общий набор. Ожидайте 4 passed: четыре спеки, каждая сама вызывает login, кроме API-теста с токеном.

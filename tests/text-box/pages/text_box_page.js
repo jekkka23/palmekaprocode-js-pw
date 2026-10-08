@@ -19,7 +19,7 @@ export class TextBoxPage {
   async open() {
   // Объявляем действие открытия тренажера.
     await this.page.goto("/practice/text-box");
-    // Открываем страницу с сохраненной сессией из конфига.
+    // Открываем страницу. Вход уже сделала функция login в спеке.
   }
   // Завершаем метод open.
   async submit(name, email) {

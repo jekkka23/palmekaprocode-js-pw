@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/draggable под учебным аккаунтом. Найдите div с id drag-area, дочерний div drag-box и блок drag-position. Исходный текст координат - x: 24, y: 24.
 
 - Создайте tests/draggable/pages и tests/draggable/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ XPath выбирает сам блок и вывод координат. Мыш�
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/draggable/draggable.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Текст координат изменится относительно x: 24, y: 24.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Текст координат изменится относительно x: 24, y: 24.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/draggable/draggable.spec.js --project=chromium --repor
 
 - Уберите mouse.down(). Координаты останутся исходными, шаг 3 упадет: 1 passed и 1 failed.
 - Верните mouse.down и замените not.toHaveText на toHaveText. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните отрицательную проверку: 2 passed.
+- Верните отрицательную проверку: 1 passed.

@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/slider под учебным аккаунтом. В Elements найдите input с id range-slider и output с id slider-value. У range есть min=0 и max=100.
 
 - Создайте tests/slider/pages и tests/slider/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/slider/slider.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. После Home и ArrowRight поле и подпись покажут 1.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. После Home и ArrowRight поле и подпись покажут 1.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/slider/slider.spec.js --project=chromium --reporter=li
 
 - Уберите ArrowRight. В шаге 3 останется 0 вместо 1: 1 passed и 1 failed.
 - Верните клавишу. Замените ожидаемый output на 2. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните 1: 2 passed.
+- Верните 1: 1 passed.

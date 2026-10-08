@@ -1,17 +1,11 @@
 import { test, expect } from "@playwright/test";
-// Подключаем test для запуска сценария и expect для проверок.
+// test объявляет проверку. expect сравнивает факт с ожиданием.
+import { login } from "../../../tests/helpers/login.js";
+// login — общий вход. Файл лежит в tests/helpers/login.js. Почты и пароля в этой спеке нет.
 test("учебный аккаунт открывает тренажер", async ({ page }) => {
-// Объявляем тест; page - новая страница браузера, async разрешает await.
-  await page.goto("/login");
-  // Открываем страницу входа: Playwright добавит /login к baseURL.
-  await page.getByLabel("Электронная почта").fill("test-auto@palmekaprocode.ru");
-  // Находим поле по подписи и вводим логин учебного аккаунта.
-  await page.getByLabel("Пароль", { exact: true }).fill("test-auto");
-  // Вводим учебный пароль; exact отличает поле от кнопки "Показать пароль".
-  await page.getByRole("button", { name: "Войти" }).click();
-  // Отправляем форму входа и переходим в кабинет.
-  await expect(page.getByRole("link", { name: "Тренировочное поле" })).toBeVisible();
-  // Дожидаемся пункта верхнего меню, который виден при доступе к полю.
+// async разрешает await. page — новая пустая вкладка.
+  await login(page);
+  // Хелпер открывает /login, вводит учетные данные и ждет кабинет.
   await page.getByRole("link", { name: "Тренировочное поле" }).click();
   // Открываем список тренажеров через верхнее меню кабинета.
   await page.locator("#tool-text-box").click();

@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/dynamic-properties под учебным аккаунтом. В Elements найдите button с id enable-after и visible-after. Второй отсутствует в DOM до истечения таймера.
 
 - Создайте tests/dynamic-properties/pages и tests/dynamic-properties/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ Playwright повторяет ассерт, пока условие не вып�
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/dynamic-properties/dynamic-properties.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Примерно через 2 секунды первая кнопка станет доступной, примерно через 5 секунд появится вторая; итог 2 passed.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Примерно через 2 секунды первая кнопка станет доступной, примерно через 5 секунд появится вторая; итог 1 passed.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -70,6 +70,6 @@ npx playwright test tests/dynamic-properties/dynamic-properties.spec.js --projec
 
 Меняйте одну строку за раз. Сначала предскажите шаг и итог, затем запустите ту же команду и верните исходный код.
 
-- В XPath visible замените visible-after на missing-button. После успешного setup основной тест упадет на шаге 3: 1 passed и 1 failed.
+- В XPath visible замените visible-after на missing-button. Основной тест упадет на шаге 3: 1 failed.
 - Верните id. В хелпере замените toBeEnabled({ timeout: 5000 }) на toHaveText("Неверный текст", { timeout: 5000 }). Основной тест упадет на шаге 3: 1 passed и 1 failed.
-- Верните исходные ассерты: 2 passed.
+- Верните исходные ассерты: 1 passed.

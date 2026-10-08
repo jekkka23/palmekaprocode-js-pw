@@ -14,11 +14,11 @@
 
 ## Что подготовить
 
-Продолжайте в palmekaprocode-js-pw после блока архитектуры. Проекты setup и chromium, baseURL и сохраненная сессия уже настроены. Откройте https://palmekaprocode.ru/practice/text-box под учебным аккаунтом в Chrome.
+Продолжайте в palmekaprocode-js-pw после блока архитектуры. В спеке есть await login(page) из tests/helpers/login.js. Откройте https://palmekaprocode.ru/practice/text-box.
 
 Создайте папку tests/xpath. Для этого урока нужен один файл tests/xpath/xpath-basics.spec.js. Хелпер и класс страницы пока не нужны: сначала важно увидеть сам поиск элемента.
 
-- Проверьте, что training-field.spec.js из предыдущего блока дает 2 passed.
+- Проверьте, что training-field.spec.js из предыдущего блока дает 1 passed.
 - Откройте Chrome DevTools через правый клик по полю имени и пункт "Просмотреть код".
 - Убедитесь, что в панели Elements видно input с id="full-name" внутри form с id="text-box-form".
 
@@ -73,10 +73,10 @@
 
 Сохраните файл в tests/xpath/xpath-basics.spec.js. В корне palmekaprocode-js-pw выполните npx playwright test tests/xpath/xpath-basics.spec.js --project=chromium --reporter=list.
 
-Setup подготовит сессию, затем пройдет один XPath-тест. В конце успешного запуска будет 2 passed. В блоке результата тест найдет имя и почту, введенные выше.
+В начале спека вызывает login из файла tests/helpers/login.js. В конце успешного запуска будет 1 passed. В блоке результата тест найдет имя и почту, введенные выше.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -95,4 +95,4 @@ npx playwright test tests/xpath/xpath-basics.spec.js --project=chromium --report
 
 - В XPath поля имени замените full-name на missing-name. Setup пройдет, основной тест упадет на toHaveCount(1): итог 1 passed и 1 failed.
 - Верните id. Замените введенное имя "Иван Петров" на "Мария Соколова", но оставьте прежнее ожидание результата. Основной тест упадет на проверке имени: итог 1 passed и 1 failed.
-- Верните исходное имя. Повторный запуск снова даст 2 passed.
+- Верните исходное имя. Повторный запуск снова даст 1 passed.

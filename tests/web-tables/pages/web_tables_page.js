@@ -27,7 +27,7 @@ export class WebTablesPage {
   async open() {
   // Объявляем переход к таблице.
     await this.page.goto("/practice/web-tables");
-    // Открываем тренажер с сохраненной сессией.
+    // Открываем тренажер. Вход уже сделала функция login в спеке.
   }
   // Завершаем метод open.
   async addRecord(data) {

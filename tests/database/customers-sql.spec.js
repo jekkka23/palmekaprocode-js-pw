@@ -1,9 +1,13 @@
 import { test, expect } from "@playwright/test";
-// Подключаем тест и проверки результата.
-test("SQL показывает покупателей", async ({ request }) => {
-// request получит cookie из сохраненной сессии проекта chromium.
-  const response = await request.post("/api/practice/sql", {
-  // Отправляем SQL через учебный эндпоинт, а не подключаемся к БД напрямую.
+// test объявляет проверку. expect сравнивает факт с ожиданием.
+import { login } from "../helpers/login.js";
+// login — общий вход. Почта и пароль лежат в tests/helpers/login.js.
+test("SQL показывает покупателей", async ({ page }) => {
+// page — вкладка браузера. Через нее войдем, а запрос отправим из той же вкладки.
+  await login(page);
+  // Хелпер открывает /login и входит. После этого у вкладки есть cookie входа.
+  const response = await page.request.post("/api/practice/sql", {
+  // page.request отправляет запрос с cookie этой вкладки. Эндпоинт выполняет SQL в учебной базе.
     data: {
     // Передаем JSON с действием, задачей и текстом запроса.
       action: "execute",

@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/tooltips под учебным аккаунтом. Найдите button с id tooltip-button. Поднимитесь по DOM к span с class tooltip-wrap и data-tip; текст появляется у его ::after при наведении.
 
 - Создайте tests/tooltips/pages и tests/tooltips/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ XPath выбирает настоящую кнопку и ее родитель�
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/tooltips/tooltips.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Атрибут содержит Подсказка у кнопки, а ::after становится visible.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Атрибут содержит Подсказка у кнопки, а ::after становится visible.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/tooltips/tooltips.spec.js --project=chromium --reporte
 
 - Уберите hover(). Псевдоэлемент останется hidden, шаг 3 упадет: 1 passed и 1 failed.
 - Верните hover и замените ожидаемый data-tip на Подсказка у поля. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните текст: 2 passed.
+- Верните текст: 1 passed.

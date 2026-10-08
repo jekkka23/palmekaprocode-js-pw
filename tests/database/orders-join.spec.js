@@ -1,11 +1,15 @@
 import { test, expect } from "@playwright/test";
-// Подключаем Playwright и проверки.
-test("JOIN связывает заказ с покупателем", async ({ request }) => {
-// Начинаем отдельный тест, который отправит SQL через API песочницы.
+// test объявляет проверку. expect сравнивает факт с ожиданием.
+import { login } from "../helpers/login.js";
+// login — общий вход. Почта и пароль лежат в tests/helpers/login.js.
+test("JOIN связывает заказ с покупателем", async ({ page }) => {
+// page — вкладка браузера. Сначала войдем, потом отправим SQL из этой же вкладки.
+  await login(page);
+  // Хелпер открывает /login и входит. Cookie входа остается у этой вкладки.
   const sql = "SELECT orders.id, customers.name FROM orders JOIN customers ON customers.id = orders.customer_id ORDER BY orders.id";
   // Соединяем заказ с покупателем по внешнему ключу и сортируем по номеру заказа.
-  const response = await request.post("/api/practice/sql", {
-  // Отправляем запрос с cookie сохраненного входа.
+  const response = await page.request.post("/api/practice/sql", {
+  // page.request отправляет запрос с cookie вкладки, в которую только что вошли.
     data: { action: "execute", taskId: "joins-order-customer", sql },
     // execute вернет строки и добавит оценку задания на исходных данных.
   });

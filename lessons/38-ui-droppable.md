@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/droppable под учебным аккаунтом. Найдите div с id drag-source и div с id drop-zone. До действия зона показывает Перетащите сюда.
 
 - Создайте tests/droppable/pages и tests/droppable/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/droppable/droppable.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Зона покажет Элемент принят и получит класс dropped.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Зона покажет Элемент принят и получит класс dropped.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/droppable/droppable.spec.js --project=chromium --repor
 
 - Замените XPath зоны на id missing-zone. Шаг 2 упадет при dragTo: 1 passed и 1 failed.
 - Верните XPath и замените ожидаемый текст на Элемент отклонен. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните текст: 2 passed.
+- Верните текст: 1 passed.

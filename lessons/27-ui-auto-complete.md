@@ -12,12 +12,12 @@
 
 ## Что подготовить
 
-Продолжайте в palmekaprocode-js-pw после аккордеона. Сохраненный setup откроет тренажер без нового входа.
+Продолжайте в palmekaprocode-js-pw после аккордеона. Спека сама вызывает login из tests/helpers/login.js.
 
 Откройте https://palmekaprocode.ru/practice/auto-complete под учебным аккаунтом. Найдите input с id auto-complete-input, список color-suggestions и теги внутри color-tags. Введите Син вручную и посмотрите, когда появляется кнопка Синий.
 
 - Создайте tests/auto-complete/pages и tests/auto-complete/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/auto-complete/auto-complete.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Появится тег Синий, а строка ввода станет пустой.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Появится тег Синий, а строка ввода станет пустой.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/auto-complete/auto-complete.spec.js --project=chromium
 
 - Замените ввод Син на Крас. Подсказка Синий не появится, шаг 2 упадет: 1 passed и 1 failed.
 - Верните Син и замените XPath тега на текст Зеленый. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните XPath: 2 passed.
+- Верните XPath: 1 passed.

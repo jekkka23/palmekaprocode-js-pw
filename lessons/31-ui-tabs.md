@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/tabs под учебным аккаунтом. Найдите button с id tab-origin и панель tab-panel-origin. До клика активна вкладка Что.
 
 - Создайте tests/tabs/pages и tests/tabs/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/tabs/tabs.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Вкладка Откуда станет выбранной и покажет текст об ожидаемом результате.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Вкладка Откуда станет выбранной и покажет текст об ожидаемом результате.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/tabs/tabs.spec.js --project=chromium --reporter=list
 
 - Замените XPath origin на tab-use. Проверка панели Откуда в шаге 3 упадет: 1 passed и 1 failed.
 - Верните XPath и замените ожидаемый aria-selected на false. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните true: 2 passed.
+- Верните true: 1 passed.

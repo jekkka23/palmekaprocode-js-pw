@@ -15,7 +15,7 @@ export class DynamicPropertiesPage {
   async open() {
   // Объявляем переход на тренажер.
     await this.page.goto("/practice/dynamic-properties");
-    // Открываем его с сохраненной сессией.
+    // Открываем страницу. Вход уже сделала функция login в спеке.
   }
   // Завершаем метод open.
   async act() {

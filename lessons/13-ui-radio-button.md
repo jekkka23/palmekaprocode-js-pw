@@ -12,12 +12,12 @@
 
 ## Что подготовить
 
-Продолжайте в palmekaprocode-js-pw после урока чекбоксов. Сохраненная сессия и структура страницы, хелпера и спеки уже знакомы.
+Продолжайте в palmekaprocode-js-pw после урока чекбоксов. Вызов login и структура страницы, хелпера и спеки уже знакомы.
 
 Откройте https://palmekaprocode.ru/practice/radio-button под учебным аккаунтом. В Elements найдите input с id radio-yes, заблокированный radio-no и блок результата radio-result. Проверьте каждый XPath через поиск панели.
 
 - Создайте tests/radio-button/pages и tests/radio-button/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/radio-button/radio-button.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. После выбора появится строка "Вы выбрали: Да".
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. После выбора появится строка "Вы выбрали: Да".
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/radio-button/radio-button.spec.js --project=chromium -
 
 - В странице замените this.yes.check() на this.no.check(). Setup пройдет, основной тест упадет на шаге 2 из-за disabled: 1 passed и 1 failed.
 - Верните первый вариант. В хелпере замените ожидаемый текст на "Вы выбрали: Впечатляет". Тест упадет на шаге 3: 1 passed и 1 failed.
-- Верните ожидание, повторный запуск даст 2 passed.
+- Верните ожидание, повторный запуск даст 1 passed.

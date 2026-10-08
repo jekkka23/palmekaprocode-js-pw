@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/date-picker под учебным аккаунтом. Найдите input с id date-only и date-time, затем p внутри date-result. Первый имеет type=date, второй type=datetime-local.
 
 - Создайте tests/date-picker/pages и tests/date-picker/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ fill() передает браузеру значения в формате HTML
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/date-picker/date-picker.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Оба поля сохранят введенные значения, а в результате будет 2026-10-01T12:30.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Оба поля сохранят введенные значения, а в результате будет 2026-10-01T12:30.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/date-picker/date-picker.spec.js --project=chromium --r
 
 - Замените первое значение на 2026-10-02, ожидание оставьте прежним. Шаг 3 упадет: 1 passed и 1 failed.
 - Верните дату. Поменяйте в проверке времени 12:30 на 13:30. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните время: 2 passed.
+- Верните время: 1 passed.

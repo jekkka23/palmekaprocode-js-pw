@@ -1,9 +1,13 @@
 import { test } from "@playwright/test";
+import { login } from "../helpers/login.js";
+// login — общий вход. Почта и пароль лежат в tests/helpers/login.js, в этой спеке их нет.
 // Подключаем запуск самостоятельного теста.
 import { runNestedFramesCase } from "./helpers/functions_nested_frames.js";
 // Подключаем готовый флоу этого тренажера.
 test("XPath проходит в дочерний iframe", async ({ page }) => {
-// Начинаем тест с новой вкладкой и сохраненной сессией.
+  await login(page);
+  // Вызываем общий хелпер: он открывает /login и входит. Дальше тест открывает тренажер.
+// Начинаем тест. Вкладка новая, вход уже сделала функция login выше.
   await runNestedFramesCase(page);
   // Выполняем три шага хелпера.
 });

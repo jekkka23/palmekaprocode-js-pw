@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/alerts под учебным аккаунтом. Найдите button с id alert-button и p внутри блока alert-result. После ручного клика закройте системное окно кнопкой ОК.
 
 - Создайте tests/alerts/pages и tests/alerts/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/alerts/alerts.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. После принятия alert страница покажет "Обычное уведомление закрыто".
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. После принятия alert страница покажет "Обычное уведомление закрыто".
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/alerts/alerts.spec.js --project=chromium --reporter=li
 
 - В XPath alertButton замените alert-button на missing-alert. Шаг 2 упадет: 1 passed и 1 failed.
 - Верните id. В хелпере замените ожидаемый текст на "Уведомление осталось открытым". Шаг 3 упадет: 1 passed и 1 failed.
-- Верните текст: 2 passed.
+- Верните текст: 1 passed.

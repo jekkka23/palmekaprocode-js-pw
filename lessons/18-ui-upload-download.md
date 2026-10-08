@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/upload-download под учебным аккаунтом. В Elements найдите input с id upload-file, строку uploaded-file-name и ссылку download-file с атрибутом download.
 
 - Создайте tests/upload-download/pages и tests/upload-download/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -51,10 +51,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/upload-download/upload-download.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Страница покажет lesson.txt, а событие скачивания предложит qa-test-file.txt.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Страница покажет lesson.txt, а событие скачивания предложит qa-test-file.txt.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -73,4 +73,4 @@ npx playwright test tests/upload-download/upload-download.spec.js --project=chro
 
 - Замените имя загружаемого файла на new-lesson.txt, но не меняйте ассерт. Шаг 3 упадет на имени: 1 passed и 1 failed.
 - Верните имя. Замените ожидаемое имя скачивания на wrong.txt. Шаг 3 упадет на последнем ассерте: 1 passed и 1 failed.
-- Верните имена: 2 passed.
+- Верните имена: 1 passed.

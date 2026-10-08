@@ -1,9 +1,13 @@
 import { test } from "@playwright/test";
+import { login } from "../helpers/login.js";
+// login — общий вход. Почта и пароль лежат в tests/helpers/login.js, в этой спеке их нет.
 // Подключаем запуск теста.
 import { runPracticeFormCase } from "./helpers/functions_practice_form.js";
 // Подключаем хелпер этого тренажера.
 test("форма показывает отправленные данные ученика", async ({ page }) => {
-// Начинаем независимый тест с сохраненной сессией.
+  await login(page);
+  // Вызываем общий хелпер: он открывает /login и входит. Дальше тест открывает тренажер.
+// Начинаем тест. Вход уже сделала функция login выше.
   await runPracticeFormCase(page, {
   // Передаем данные, которые страница введет, а хелпер проверит.
     firstName: "Мария",

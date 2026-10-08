@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/progress-bar под учебным аккаунтом. Найдите div с id progress-bar и атрибутом aria-valuenow, кнопки start-progress и reset-progress.
 
 - Создайте tests/progress-bar/pages и tests/progress-bar/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ Playwright сам повторяет проверку, пока число не 
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/progress-bar/progress-bar.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Прогресс успеет измениться, затем вернется к 0 и снова покажет Запустить.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Прогресс успеет измениться, затем вернется к 0 и снова покажет Запустить.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/progress-bar/progress-bar.spec.js --project=chromium -
 
 - Уберите reset.click(). В шаге 3 значение не станет 0: 1 passed и 1 failed.
 - Верните сброс. Замените ожидание кнопки на Остановить. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните Запустить: 2 passed.
+- Верните Запустить: 1 passed.

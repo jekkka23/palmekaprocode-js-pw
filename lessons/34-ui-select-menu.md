@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/select-menu под учебным аккаунтом. Найдите select-value, select-role, select-colors с атрибутом multiple и блок select-result.
 
 - Создайте tests/select-menu/pages и tests/select-menu/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/select-menu/select-menu.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Поля сохранят group-two, mentor, Красный и Синий; итог покажет оба цвета.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Поля сохранят group-two, mentor, Красный и Синий; итог покажет оба цвета.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/select-menu/select-menu.spec.js --project=chromium --r
 
 - Уберите Синий из массива selectOption. Шаг 3 упадет на проверке двух цветов: 1 passed и 1 failed.
 - Верните массив и замените ожидаемую роль на admin. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните mentor: 2 passed.
+- Верните mentor: 1 passed.

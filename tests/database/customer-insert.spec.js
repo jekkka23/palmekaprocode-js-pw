@@ -1,16 +1,21 @@
 import { test, expect } from "@playwright/test";
-// Подключаем тест, пропуск по условию и проверки.
+// test объявляет проверку. expect сравнивает факт с ожиданием.
+import { login } from "../helpers/login.js";
+// login — общий вход. Здесь ему передадутся почта и пароль из терминала, не учебный аккаунт.
 test.skip(process.env.RUN_SQL_CHANGES !== "1", "Запускайте отдельно для личного аккаунта");
+// test.skip пропускает тест, пока в терминале нет RUN_SQL_CHANGES=1.
 // Обычный запуск всего набора не должен сбрасывать чью-либо базу.
-test("новый покупатель сохраняется в БД", async ({ request }) => {
-// Начинаем отдельный тест с cookie аккаунта из QA_EMAIL и QA_PASSWORD.
+test("новый покупатель сохраняется в БД", async ({ page }) => {
+// page — вкладка браузера. Войдем в нее и из нее же отправим SQL.
   expect(process.env.QA_EMAIL, "Задайте QA_EMAIL отдельного аккаунта").toBeTruthy();
   // Не начинаем запись, если почту отдельного аккаунта забыли.
   expect(process.env.QA_EMAIL).not.toBe("test-auto@palmekaprocode.ru");
   // Общий учебный аккаунт никогда не сбрасываем этим тестом.
   expect(process.env.QA_PASSWORD, "Задайте QA_PASSWORD").toBeTruthy();
-  // Пароль тоже должен прийти из терминала, а не быть записан в коде.
-  const run = (data) => request.post("/api/practice/sql", { data });
+  // Пароль тоже должен прийти из терминала, а не быть записан в этой спеке.
+  await login(page);
+  // Хелпер читает QA_EMAIL и QA_PASSWORD и входит этим отдельным аккаунтом.
+  const run = (data) => page.request.post("/api/practice/sql", { data });
   // Сокращаем повторяющийся POST к SQL-песочнице.
   const before = await run({ action: "reset" });
   // Восстанавливаем исходный набор только у отдельного аккаунта.

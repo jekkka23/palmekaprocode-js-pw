@@ -1,19 +1,13 @@
 import { test, expect } from "@playwright/test";
-// Подключаем запуск теста и проверки результата.
+// test объявляет проверку. expect сравнивает факт с ожиданием.
+import { login } from "../../../tests/helpers/login.js";
+// login — общий вход. Файл лежит в tests/helpers/login.js. Почты и пароля в этой спеке нет.
 test("команды Playwright проверяют три тренажера", async ({ page }) => {
-// Получаем новую вкладку для одного самостоятельного теста.
-  await page.goto("/login");
-  // Открываем форму входа с адресом из baseURL.
-  await page.locator("xpath=//form[contains(@class, 'auth-form')]//input[@name='email']").fill("test-auto@palmekaprocode.ru");
-  // Находим поле почты готовым XPath и вводим логин учебного аккаунта.
-  await page.locator("xpath=//input[@id='login-password']").fill("test-auto");
-  // Находим поле пароля по id и вводим учебный пароль.
-  await page.locator("xpath=//form[contains(@class, 'auth-form')]//button[@type='submit']").click();
-  // Отправляем форму входа.
-  await expect(page).toHaveURL((process.env.BASE_URL || "https://palmekaprocode.ru") + "/account");
-  // Проверяем кабинет на том же адресе, который задан для теста.
+// async разрешает await. page — новая пустая вкладка.
+  await login(page);
+  // Хелпер открывает /login и входит. Дальше идут команды по тренажерам.
   await page.goto("/practice/text-box");
-  // Переходим к текстовой форме с той же сессией.
+  // Переходим к текстовой форме. Вход уже сделала функция login выше.
   const name = page.locator("xpath=//input[@id='full-name']");
   // Сохраняем локатор поля имени; как составить XPath, узнаем в отдельном блоке.
   const email = page.locator("xpath=//input[@id='user-email']");

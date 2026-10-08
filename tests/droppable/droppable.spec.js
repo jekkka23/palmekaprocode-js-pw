@@ -1,9 +1,13 @@
 import { test } from "@playwright/test";
+import { login } from "../helpers/login.js";
+// login — общий вход. Почта и пароль лежат в tests/helpers/login.js, в этой спеке их нет.
 // Подключаем запуск самостоятельного теста.
 import { runDroppableCase } from "./helpers/functions_droppable.js";
 // Подключаем готовый флоу этого тренажера.
 test("зона принимает перетащенный элемент", async ({ page }) => {
-// Начинаем тест с новой вкладкой и сохраненной сессией.
+  await login(page);
+  // Вызываем общий хелпер: он открывает /login и входит. Дальше тест открывает тренажер.
+// Начинаем тест. Вкладка новая, вход уже сделала функция login выше.
   await runDroppableCase(page);
   // Выполняем три шага хелпера.
 });

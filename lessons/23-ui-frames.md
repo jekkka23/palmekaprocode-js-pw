@@ -17,7 +17,7 @@ XPath основной страницы не проходит внутрь ifram
 Откройте https://palmekaprocode.ru/practice/frames под учебным аккаунтом. Найдите iframe с id frame-one, раскройте его документ в Elements и найдите h1 с id frame-heading.
 
 - Создайте tests/frames/pages и tests/frames/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@ page.frameLocator получает XPath самого iframe. Затем locator
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/frames/frames.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. В первом iframe тест найдет заголовок "Первый фрейм".
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. В первом iframe тест найдет заголовок "Первый фрейм".
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/frames/frames.spec.js --project=chromium --reporter=li
 
 - В frameLocator замените frame-one на frame-two. Внутри второго фрейма нет h1 с id frame-heading, шаг 3 упадет: 1 passed и 1 failed.
 - Верните iframe. В XPath внутреннего h1 замените frame-heading на missing-heading. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните оба id: 2 passed.
+- Верните оба id: 1 passed.

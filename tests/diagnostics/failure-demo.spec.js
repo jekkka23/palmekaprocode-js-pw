@@ -1,11 +1,15 @@
 import { test, expect } from "@playwright/test";
+import { login } from "../helpers/login.js";
+// login — общий вход. Почта и пароль лежат в tests/helpers/login.js, в этой спеке их нет.
 // Подключаем тест, шаги и проверку текста результата.
 import { TextBoxPage } from "../text-box/pages/text_box_page.js";
 // Берем уже готовую страницу из урока текстовых полей.
 test.skip(process.env.RUN_FAILURE_DEMO !== "1", "Запускайте отдельно для разбора trace");
 // Обычный запуск всего набора не должен падать специально.
 test("учебное падение показывает неверное ожидаемое имя", async ({ page }) => {
-// Начинаем отдельный тест с сохраненной сессией.
+  await login(page);
+  // Вызываем общий хелпер: он открывает /login и входит. Дальше тест открывает тренажер.
+// Начинаем тест. Вход уже сделала функция login выше.
   const form = new TextBoxPage(page);
   // Создаем объект страницы для текущей вкладки.
   await test.step("Шаг 1. Открыть текстовые поля", async () => {

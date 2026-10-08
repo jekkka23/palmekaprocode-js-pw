@@ -17,7 +17,7 @@
 Откройте https://palmekaprocode.ru/practice/broken-links под учебным аккаунтом. В Elements найдите img с id valid-image и broken-image, а также a с id broken-link. Проверьте их XPath до запуска теста.
 
 - Создайте tests/broken-links/pages и tests/broken-links/helpers.
-- Проверьте, что setup из урока авторизации проходит вместе с предыдущим UI-тестом.
+- Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.
 - Конфиг Playwright и вход не копируйте в новую спеку.
 
 ## Новые термины
@@ -50,10 +50,10 @@
 
 Сохраните три файла. В корне palmekaprocode-js-pw выполните npx playwright test tests/broken-links/broken-links.spec.js --project=chromium --reporter=list.
 
-Сначала пройдет setup, затем тест этого тренажера. Последняя строка успешного запуска - 2 passed. Рабочая картинка имеет ширину больше нуля, битая - ноль, ссылка хранит адрес отсутствующей страницы.
+В начале спека вызывает login из файла tests/helpers/login.js. Хелпер сам открывает /login и входит. Последняя строка успешного запуска - 1 passed. Рабочая картинка имеет ширину больше нуля, битая - ноль, ссылка хранит адрес отсутствующей страницы.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -72,4 +72,4 @@ npx playwright test tests/broken-links/broken-links.spec.js --project=chromium -
 
 - Замените XPath validImage на img с id broken-image. Шаг 3 упадет на проверке width > 0: 1 passed и 1 failed.
 - Верните XPath. Замените ожидаемый href на /practice. Шаг 3 упадет: 1 passed и 1 failed.
-- Верните исходный адрес: 2 passed.
+- Верните исходный адрес: 1 passed.

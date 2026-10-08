@@ -12,7 +12,7 @@
 
 - Пройдите SELECT через JavaScript: здесь остается тот же request, cookie и POST к SQL-песочнице.
 - В SQL-песочнице посмотрите столбцы orders.customer_id и customers.id. Сначала вручную выполните JOIN из примера.
-- Используйте сохраненный вход из tests/auth.setup.js и проект chromium. Данные аккаунта не меняем.
+- Используйте сохраненный вход из tests/helpers/login.js и проект chromium. Данные аккаунта не меняем.
 
 ## Сначала разберем слова
 
@@ -54,15 +54,15 @@
 
 Выполняйте шаги по порядку.
 
-- Сохраните файл tests/database/orders-join.spec.js. В palmekaprocode-js-pw уже должен работать tests/auth.setup.js с доступом к полю.
+- Сохраните файл tests/database/orders-join.spec.js. В palmekaprocode-js-pw уже должен работать tests/helpers/login.js с доступом к полю.
 - Выполните npx playwright test tests/database/orders-join.spec.js --project=chromium --reporter=list.
 
 ## Какой результат ожидать
 
-Последняя строка успешного запуска - 2 passed: setup и JOIN-тест. Сервер вернет статус 200, columns ["id", "name"], непустые rows и evaluation.passed: true. Оценка сравнивает запрос с эталоном, даже если личные таблицы менялись.
+Последняя строка успешного запуска - 1 passed. Спека сначала вызывает login из tests/helpers/login.js, затем отправляет JOIN. Сервер вернет статус 200, columns ["id", "name"], непустые rows и evaluation.passed: true. Оценка сравнивает запрос с эталоном, даже если личные таблицы менялись.
 
 ```text
-2 passed
+1 passed
 ```
 
 ## Команды для копирования
@@ -81,4 +81,4 @@ npx playwright test tests/database/orders-join.spec.js --project=chromium --repo
 
 - Замените в SQL orders.customer_id на orders.id. Реквест вернет 200, но evaluation.passed станет false; итог 1 passed и 1 failed.
 - Верните JOIN и поменяйте местами столбцы в SELECT. Проверка columns упадет; итог 1 passed и 1 failed.
-- Верните исходную строку. Итог снова 2 passed; покажите пальцем, какие два id участвуют в ON.
+- Верните исходную строку. Итог снова 1 passed; покажите пальцем, какие два id участвуют в ON.
