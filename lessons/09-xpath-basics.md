@@ -71,9 +71,9 @@
 
 ## Как запустить и какой вывод ожидать
 
-Сохраните файл в tests/xpath/xpath-basics.spec.js. В корне palmekaprocode-js-pw выполните npx playwright test tests/xpath/xpath-basics.spec.js --project=chromium --reporter=list.
+Сохраните файл в tests/xpath/xpath-basics.spec.js. В корне palmekaprocode-js-pw выполните команду с --headed, чтобы окно браузера было видно.
 
-В начале спека вызывает login из файла tests/helpers/login.js. В конце успешного запуска будет 1 passed. В блоке результата тест найдет имя и почту, введенные выше.
+В начале спека вызывает login из файла tests/helpers/login.js. Потом заполняет все четыре поля: имя, почту, текущий адрес и адрес регистрации. Между шагами стоит waitForTimeout(2000): это пауза 2 секунды, чтобы шаг успели увидеть. console.log печатает название шага в терминал. В конце успешного запуска будет 1 passed. В блоке результата тест найдет все четыре введенных значения.
 
 ```text
 1 passed
@@ -86,7 +86,7 @@
 **Запустить тест этого урока**
 
 ```bash
-npx playwright test tests/xpath/xpath-basics.spec.js --project=chromium --reporter=list
+npx playwright test tests/xpath/xpath-basics.spec.js --project=chromium --headed --reporter=list
 ```
 
 ## Что поменять для проверки понимания
