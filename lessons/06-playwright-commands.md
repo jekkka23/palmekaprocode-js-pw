@@ -28,7 +28,7 @@ Playwright управляет браузером программно: откр�
 
 Используйте корень palmekaprocode-js-pw из прошлого урока. Зависимость @playwright/test установлена в корне, а вводный конфиг с baseURL и Chromium лежит в intro/qa-playwright/playwright.config.js. Файлы проекта оставьте как есть.
 
-Учебный аккаунт test-auto@palmekaprocode.ru учетные данные лежат в tests/helpers/login.js имеет доступ к тренировочному полю. До урока сохранения сессии каждая самостоятельная спека вводит эти данные сама. Проверка npx playwright test intro/qa-playwright/tests/training-field.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list должна дать 1 passed.
+Учебный аккаунт test-auto@palmekaprocode.ru с паролем test-autotesttest имеет доступ к тренировочному полю. До урока сохранения сессии каждая самостоятельная спека вводит эти данные сама. Проверка npx playwright test intro/qa-playwright/tests/training-field.spec.js --config intro/qa-playwright/playwright.config.js --reporter=list должна дать 1 passed.
 
 - Создайте новый файл intro/qa-playwright/tests/playwright-commands.spec.js рядом с первым тестом.
 - Откройте вручную https://palmekaprocode.ru/practice/text-box, затем check-box и select-menu под учебным аккаунтом.
@@ -75,7 +75,7 @@ Playwright управляет браузером программно: откр�
 
 [Открыть готовый файл](../intro/qa-playwright/tests/playwright-commands.spec.js)
 
-**Обратите внимание.** Вход в этой спеке делает общий хелпер tests/helpers/login.js. В следующем уроке разберем этот файл и вызов login(page). Пароль в спеке не пишем.
+**Обратите внимание.** Вход учебного аккаунта пока написан прямо в этой спеке, как в первом тесте. В следующем уроке вынесем вход в setup и начнем новые тесты сразу с тренажера.
 
 ## Как запустить и какой вывод ожидать
 

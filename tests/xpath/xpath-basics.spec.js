@@ -24,7 +24,7 @@ test("XPath находит поля и результат", async ({ page }) => 
   await page.waitForTimeout(pauseMs);
 
   console.log("Шаг: заполняю имя — Иван Петров");
-  const name = page.locator("xpath=//form[@id='text-box-form']//input[@id='full-name']");
+  const name = page.locator("xpath=//input[@id='full-name']");
   // const создает переменную name. В ней лежит локатор, а не текст.
   // locator готовит поиск. xpath= говорит: строка дальше — это XPath.
   // //form — найти форму. [@id='text-box-form'] — именно эту форму.
@@ -36,7 +36,7 @@ test("XPath находит поля и результат", async ({ page }) => 
   await page.waitForTimeout(pauseMs);
 
   console.log("Шаг: заполняю почту — ivan@example.ru");
-  const email = page.locator("xpath=//form[@id='text-box-form']//input[@type='email']");
+  const email = page.locator("xpath=//input[@type='email']");
   // Ищем поле почты по атрибуту type=email внутри той же формы.
   await expect(email).toHaveCount(1);
   await email.fill("ivan@example.ru");
@@ -44,14 +44,14 @@ test("XPath находит поля и результат", async ({ page }) => 
   await page.waitForTimeout(pauseMs);
 
   console.log("Шаг: заполняю текущий адрес");
-  const currentAddress = page.locator("xpath=//form[@id='text-box-form']//textarea[@id='current-address']");
+  const currentAddress = page.locator("xpath=//textarea[@id='current-address']");
   // textarea — большое поле для нескольких строк. id current-address — «Текущий адрес».
   await expect(currentAddress).toHaveCount(1);
   await currentAddress.fill("улица Ленина, дом 10");
   await page.waitForTimeout(pauseMs);
 
   console.log("Шаг: заполняю адрес регистрации");
-  const permanentAddress = page.locator("xpath=//form[@id='text-box-form']//textarea[@id='permanent-address']");
+  const permanentAddress = page.locator("xpath=//textarea[@id='permanent-address']");
   // id permanent-address — поле «Адрес регистрации».
   await expect(permanentAddress).toHaveCount(1);
   await permanentAddress.fill("улица Мира, дом 5");
