@@ -64,7 +64,7 @@ const qaRows = rows.filter((row) => row.department === "QA");
 // Проверяем department у каждого объекта: true дает QA, поэтому остаются Ирина и Олег.
 
 const qaNames = qaRows.map((row) => row.name);
-// Берем name у каждого из двух оставшихся объектов: получаем ["Ирина", "Олег"].
+// Берем name у каждого из двух оставшихся объектов: получаем ["Ирина", "Олег, Игорь"].
 
 const devRows = rows.filter((row) => row.department === "Разработка");
 
