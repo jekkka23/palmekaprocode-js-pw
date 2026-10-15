@@ -6,11 +6,11 @@ test("учебный аккаунт открывает тренажер", async 
 // async разрешает await. page — новая пустая вкладка.
   await login(page);
   // Хелпер открывает /login, вводит учетные данные и ждет кабинет.
-  await page.getByRole("link", { name: "Тренировочное поле" }).click();
-  // Открываем список тренажеров через верхнее меню кабинета.
-  await page.locator("#tool-text-box").click();
-  // Выбираем карточку "Текстовые поля" по ее id.
-  await expect(page.getByRole("heading", { name: "Текстовые поля" })).toBeVisible();
-  // Проверяем, что нужный тренажер действительно открылся.
+  await page.locator("xpath=//header//a[@href='/practice']").click();
+  // Находим ссылку на поле внутри верхнего меню по XPath и нажимаем ее.
+  await page.locator("xpath=//a[@id='tool-text-box']").click();
+  // Выбираем карточку "Текстовые поля" по XPath с ее id.
+  await expect(page.locator("xpath=//h1[normalize-space(.)='Текстовые поля']")).toBeVisible();
+  // По XPath находим заголовок с нужным текстом и ждем, что он виден.
 });
 // Закрываем тест; Playwright сообщит, прошел ли весь путь до тренажера.
