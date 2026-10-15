@@ -12,10 +12,10 @@
 
 Из прошлых уроков пригодятся обычные файлы .js, import, async и await. Понадобится установленный Node.js. Команды node --version и npm --version должны показать номера версий.
 
-Для примеров используйте отдельный учебный аккаунт с доступом к тренировочному полю. Эти же данные мы впишем в код первого теста:
+Для открытых уроков используем аккаунт open-lesson@palmeka.ru с доступом к тренировочному полю. Его логин и пароль уже записаны в общем хелпере tests/helpers/login.js:
 
-- Логин: test-auto@palmekaprocode.ru
-- Пароль лежит только в файле tests/helpers/login.js. На уроке файл не открываем.
+- Логин: open-lesson@palmeka.ru
+- Пароль: open-lesson. Данные этого учебного аккаунта находятся в tests/helpers/login.js.
 - Откройте https://palmekaprocode.ru/login, введите эти данные и нажмите "Войти".
 - В верхнем меню кабинета нажмите "Тренировочное поле". В разделе "Элементы" выберите "Текстовые поля". Вы окажетесь на https://palmekaprocode.ru/practice/text-box.
 
@@ -80,7 +80,7 @@ npx playwright install chromium
 
 [Открыть готовый файл](../intro/qa-playwright/tests/training-field.spec.js)
 
-**Обратите внимание.** Почта и пароль лежат только в tests/helpers/login.js. На открытом уроке этот файл не открываем. Личный пароль в учебные спеки не добавляйте.
+**Обратите внимание.** В tests/helpers/login.js по умолчанию записаны логин open-lesson@palmeka.ru и пароль open-lesson. Вызов login(page) использует этот аккаунт. Для обычного урока оставьте учебные значения в хелпере.
 
 ## Как запустить и что увидеть
 
@@ -92,7 +92,7 @@ npx playwright install chromium
 1 passed
 ```
 
-**Обратите внимание.** Если Playwright пишет, что браузер не найден, снова выполните npx playwright install chromium. Если тест не находит файл, проверьте путь intro/qa-playwright/tests/training-field.spec.js и параметр --config. Если вместо поля открылся кабинет, проверьте логин и пароль в спеке.
+**Обратите внимание.** Если Playwright пишет, что браузер не найден, снова выполните npx playwright install chromium. Если тест не находит файл, проверьте путь intro/qa-playwright/tests/training-field.spec.js и параметр --config. Если вместо поля открылся кабинет, проверьте учебный аккаунт в tests/helpers/login.js и его доступ к тренировочному полю.
 
 ## Команды для копирования
 

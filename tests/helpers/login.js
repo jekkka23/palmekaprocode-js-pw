@@ -2,15 +2,15 @@ import { expect } from "@playwright/test";
 // import берет готовую функцию из пакета Playwright.
 // expect — это проверка: она ждет нужный результат и роняет тест, если результат другой.
 
-const email = process.env.QA_EMAIL || "test-auto@palmekaprocode.ru";
+const email = process.env.QA_EMAIL || "open-lesson@palmeka.ru";
 // const создает постоянную переменную email. В ней лежит почта для входа.
 // process.env.QA_EMAIL читает почту из терминала, если ее туда записали.
 // Знак || значит: если слева пусто, возьми строку справа. Это учебная почта.
 
-const password = process.env.QA_PASSWORD || "test-autotesttest";
+const password = process.env.QA_PASSWORD || "open-lesson";
 // password — пароль того же аккаунта.
 // process.env.QA_PASSWORD читает пароль из терминала, если он задан снаружи.
-// На открытом уроке этот файл не открываем и значение пароля не зачитываем.
+// По умолчанию используем учебный пароль для открытых уроков.
 
 export async function login(page) {
 // export отдает функцию наружу, чтобы спека могла написать login(page).

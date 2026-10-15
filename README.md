@@ -39,7 +39,7 @@ npx playwright test intro/qa-playwright/tests/playwright-commands.spec.js --conf
 
 ## Дальнейшие уроки
 
-Вход делает общий хелпер [tests/helpers/login.js](tests/helpers/login.js). Спека вызывает `login(page)` в начале. Почта и пароль записаны только в этом файле. Например:
+Вход делает общий хелпер [tests/helpers/login.js](tests/helpers/login.js). По умолчанию он использует учебный аккаунт open-lesson@palmeka.ru с паролем open-lesson. Спека вызывает `login(page)` в начале. Данные аккаунта записаны в хелпере. Например:
 
 ```bash
 npx playwright test tests/text-box/text-box.spec.js --project=chromium --reporter=list

@@ -10,7 +10,9 @@ test("новый покупатель сохраняется в БД", async ({ 
   expect(process.env.QA_EMAIL, "Задайте QA_EMAIL отдельного аккаунта").toBeTruthy();
   // Не начинаем запись, если почту отдельного аккаунта забыли.
   expect(process.env.QA_EMAIL).not.toBe("test-auto@palmekaprocode.ru");
-  // Общий учебный аккаунт никогда не сбрасываем этим тестом.
+  // Прежний общий учебный аккаунт не сбрасываем этим тестом.
+  expect(process.env.QA_EMAIL).not.toBe("open-lesson@palmeka.ru");
+  // Аккаунт открытых уроков тоже остается без изменений.
   expect(process.env.QA_PASSWORD, "Задайте QA_PASSWORD").toBeTruthy();
   // Пароль тоже должен прийти из терминала, а не быть записан в этой спеке.
   await login(page);
