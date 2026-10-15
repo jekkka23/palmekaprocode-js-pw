@@ -8,3 +8,5 @@ export function makeStudentEmail(number) {
   return "student-" + number + "@example.ru";
   // Возвращаем адрес по тому же правилу, что в первом примере.
 }
+
+//мы написали функцию которую можно использовать в других файлах.
