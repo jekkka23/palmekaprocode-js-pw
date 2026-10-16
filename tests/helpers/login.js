@@ -32,10 +32,10 @@ export async function login(page) {
   // //button выбирает кнопку, @type='submit' указывает на отправку формы.
   // normalize-space() проверяет текст 'Войти' без лишних пробелов по краям.
   // click нажимает эту кнопку и отправляет форму.
-  await expect(page).toHaveURL((process.env.BASE_URL || "https://palmekaprocode.ru") + "/account");
+  await expect(page).toHaveURL("/account");
   // expect(page) проверяет всю вкладку, а не одно поле.
   // toHaveURL ждет, пока адрес станет адресом кабинета.
-  // Плюс склеивает адрес сайта и путь /account.
+  // адрес сайта берется из baseURL в playwright.config.js.
   await expect(page.locator("xpath=//a[normalize-space()='Тренировочное поле']")).toBeVisible();
   // //a выбирает ссылку, normalize-space() проверяет текст 'Тренировочное поле'.
   // Эта ссылка видна в кабинете после входа.
