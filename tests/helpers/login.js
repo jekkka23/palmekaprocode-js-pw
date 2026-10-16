@@ -20,24 +20,24 @@ export async function login(page) {
   // await ждет окончания действия. Следующая строка начнется только после этого.
   // page.goto открывает адрес. "/login" — хвост адреса, страница входа.
   // Начало адреса, https://palmekaprocode.ru, записано в playwright.config.js как baseURL.
-  await page.getByLabel("Электронная почта").fill(email);
-  // getByLabel ищет поле по тексту подписи рядом с ним. Здесь подпись — «Электронная почта».
+  await page.locator("xpath=//input[@name=\"email\"]").fill(email);
+  // locator с префиксом xpath= ищет элемент через xpath.
+  // //input выбирает поле, а @name="email" уточняет значение его атрибута name.
   // fill стирает то, что уже было в поле, и пишет туда значение email.
-  await page.getByLabel("Пароль", { exact: true }).fill(password);
-  // Второе поле ищем по подписи «Пароль».
-  // exact: true значит: подпись должна совпасть целиком.
-  // Так тест не путает поле пароля с кнопкой «Показать пароль».
+  await page.locator("xpath=//input[@name=\"password\"]").fill(password);
+  // поле пароля ищем по тегу input и атрибуту name="password".
+  // так тест не путает поле пароля с кнопкой "Показать пароль".
   // fill пишет в поле значение password.
-  await page.getByRole("button", { name: "Войти" }).click();
-  // getByRole ищет элемент по его роли. button — это кнопка.
-  // name — видимый текст на кнопке, здесь «Войти».
+  await page.locator("xpath=//button[@type=\"submit\" and normalize-space()=\"Войти\"]").click();
+  // //button выбирает кнопку, @type="submit" указывает на отправку формы.
+  // normalize-space() проверяет текст "Войти" без лишних пробелов по краям.
   // click нажимает эту кнопку и отправляет форму.
   await expect(page).toHaveURL((process.env.BASE_URL || "https://palmekaprocode.ru") + "/account");
   // expect(page) проверяет всю вкладку, а не одно поле.
   // toHaveURL ждет, пока адрес станет адресом кабинета.
   // Плюс склеивает адрес сайта и путь /account.
-  await expect(page.getByRole("link", { name: "Тренировочное поле" })).toBeVisible();
-  // getByRole("link") ищет ссылку. name — ее текст, «Тренировочное поле».
+  await expect(page.locator("xpath=//a[normalize-space()=\"Тренировочное поле\"]")).toBeVisible();
+  // //a выбирает ссылку, normalize-space() проверяет текст "Тренировочное поле".
   // Эта ссылка видна в кабинете после входа.
   // toBeVisible ждет, пока ссылка появится на экране.
 }
