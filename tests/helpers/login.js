@@ -28,7 +28,7 @@ export async function login(page) {
   // поле пароля ищем по тегу input и атрибуту name='password'.
   // так тест не путает поле пароля с кнопкой "Показать пароль".
   // fill пишет в поле значение password.
-  await page.locator("xpath=//button[@type='submit' and normalize-space()='Войти']").click();
+  await page.locator("xpath=//button[contains(@type, 'submit') and contains(., 'Войти')]").click();
   // //button выбирает кнопку, @type='submit' указывает на отправку формы.
   // normalize-space() проверяет текст 'Войти' без лишних пробелов по краям.
   // click нажимает эту кнопку и отправляет форму.
