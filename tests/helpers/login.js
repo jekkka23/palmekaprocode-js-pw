@@ -20,24 +20,24 @@ export async function login(page) {
   // await ждет окончания действия. Следующая строка начнется только после этого.
   // page.goto открывает адрес. "/login" — хвост адреса, страница входа.
   // Начало адреса, https://palmekaprocode.ru, записано в playwright.config.js как baseURL.
-  await page.locator("xpath=//input[@name=\"email\"]").fill(email);
+  await page.locator("xpath=//input[@name='email']").fill(email);
   // locator с префиксом xpath= ищет элемент через xpath.
-  // //input выбирает поле, а @name="email" уточняет значение его атрибута name.
+  // //input выбирает поле, а @name='email' уточняет значение его атрибута name.
   // fill стирает то, что уже было в поле, и пишет туда значение email.
-  await page.locator("xpath=//input[@name=\"password\"]").fill(password);
-  // поле пароля ищем по тегу input и атрибуту name="password".
+  await page.locator("xpath=//input[@name='password']").fill(password);
+  // поле пароля ищем по тегу input и атрибуту name='password'.
   // так тест не путает поле пароля с кнопкой "Показать пароль".
   // fill пишет в поле значение password.
-  await page.locator("xpath=//button[@type=\"submit\" and normalize-space()=\"Войти\"]").click();
-  // //button выбирает кнопку, @type="submit" указывает на отправку формы.
-  // normalize-space() проверяет текст "Войти" без лишних пробелов по краям.
+  await page.locator("xpath=//button[@type='submit' and normalize-space()='Войти']").click();
+  // //button выбирает кнопку, @type='submit' указывает на отправку формы.
+  // normalize-space() проверяет текст 'Войти' без лишних пробелов по краям.
   // click нажимает эту кнопку и отправляет форму.
   await expect(page).toHaveURL((process.env.BASE_URL || "https://palmekaprocode.ru") + "/account");
   // expect(page) проверяет всю вкладку, а не одно поле.
   // toHaveURL ждет, пока адрес станет адресом кабинета.
   // Плюс склеивает адрес сайта и путь /account.
-  await expect(page.locator("xpath=//a[normalize-space()=\"Тренировочное поле\"]")).toBeVisible();
-  // //a выбирает ссылку, normalize-space() проверяет текст "Тренировочное поле".
+  await expect(page.locator("xpath=//a[normalize-space()='Тренировочное поле']")).toBeVisible();
+  // //a выбирает ссылку, normalize-space() проверяет текст 'Тренировочное поле'.
   // Эта ссылка видна в кабинете после входа.
   // toBeVisible ждет, пока ссылка появится на экране.
 }
