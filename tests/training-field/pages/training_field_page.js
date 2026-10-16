@@ -4,11 +4,11 @@ export class TrainingFieldPage {
   // Получаем page - вкладку браузера, созданную Playwright для теста.
     this.page = page;
     // Сохраняем вкладку для метода open.
-    this.field = page.locator("#training-field");
+    this.field = page.locator("xpath=//*[@id='training-field']");
     // Находим основной блок тренировочного поля по id.
-    this.textBoxCard = page.locator("#tool-text-box");
+    this.textBoxCard = page.locator("xpath=//a[@id='tool-text-box']");
     // Находим карточку "Текстовые поля" в списке тренажеров.
-    this.textBoxHeading = page.getByRole("heading", { name: "Текстовые поля" });
+    this.textBoxHeading = page.locator("xpath=//h1[normalize-space(.)='Текстовые поля']");
     // Находим заголовок, который должен появиться после перехода.
   }
   // Закрываем constructor: локаторы готовы, но сайт еще не открыт.

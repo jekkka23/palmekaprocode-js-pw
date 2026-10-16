@@ -10,8 +10,8 @@ test("хелпер входа открывает тренажер", async ({ pag
   // Вызываем общий хелпер: он открывает /login и входит.
   await page.goto("/practice/text-box");
   // goto открывает тренажер «Текстовые поля». Хвост адреса добавляется к baseURL.
-  await expect(page.getByRole("heading", { name: "Текстовые поля" })).toBeVisible();
-  // getByRole("heading") ищет заголовок. name — его текст.
+  await expect(page.locator("xpath=//h1[normalize-space(.)='Текстовые поля']")).toBeVisible();
+  // //h1 выбирает заголовок, normalize-space(.) проверяет его текст без лишних пробелов.
   // toBeVisible ждет, пока заголовок появится. Если сайт уведет на вход, проверки не будет.
 });
 // Закрываем тест.
