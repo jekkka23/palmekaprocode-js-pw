@@ -129,7 +129,7 @@ test("учебный аккаунт открывает тренажер", async 
   // Выбираем карточку "Текстовые поля" по XPath с ее id.
   console.log("карточка открыта");
 
-  await expect(page.locator("xpath=//h1[normalize-space(.)='Текстовые поля']")).toBeVisible();
+  await expect(page.locator("xpath=//h1[text()='Текстовые поля']")).toBeVisible();
   // По XPath находим заголовок с нужным текстом и ждем, что он виден.
   console.log("заголовок виден");
 });

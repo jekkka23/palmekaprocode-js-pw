@@ -4,7 +4,7 @@ export class TextBoxPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода на тренажер.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Текстовые поля']");
+    this.heading = page.locator("xpath=//h1[text()='Текстовые поля']");
     // Находим заголовок тренажера по точному тексту.
     this.name = page.locator("xpath=//form[@id='text-box-form']//input[@id='full-name']");
     // Находим поле имени по id внутри формы.
