@@ -6,7 +6,7 @@ export class BrowserWindowsPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Окна браузера']");
     // Находим заголовок тренажера через XPath.
-    this.newTab = page.locator("xpath=//div[@id='browser-windows']//button[@id='new-tab']");
+    this.newTab = page.locator("xpath=//button[@id='new-tab']");
     // Находим кнопку открытия новой вкладки.
   }
   // Завершаем подготовку локаторов.

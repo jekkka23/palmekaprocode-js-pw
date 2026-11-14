@@ -6,9 +6,9 @@ export class DatePickerPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Выбор даты']");
     // Находим заголовок тренажера через XPath.
-    this.date = page.locator("xpath=//div[@id='date-picker']//input[@id='date-only']");
+    this.date = page.locator("xpath=//input[@id='date-only']");
     // Находим поле только даты.
-    this.dateTime = page.locator("xpath=//div[@id='date-picker']//input[@id='date-time']");
+    this.dateTime = page.locator("xpath=//input[@id='date-time']");
     // Находим поле даты и времени.
     this.result = page.locator("xpath=//div[@id='date-result']");
     // Находим итоговый блок.

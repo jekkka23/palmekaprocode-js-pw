@@ -14,7 +14,7 @@
 
 Продолжайте после вкладок. В DevTools изучите кнопку и ее родительский span с data-tip.
 
-Откройте https://palmekaprocode.ru/practice/tooltips под учебным аккаунтом. Найдите button с id tooltip-button. Поднимитесь по DOM к span с class tooltip-wrap и data-tip; текст появляется у его ::after при наведении.
+Откройте https://palmekaprocode.ru/practice/tooltips под учебным аккаунтом. Найдите button с id tooltip-button и span с data-tip="Подсказка у кнопки". Текст подсказки появляется у ::after этого span при наведении.
 
 - Создайте tests/tooltips/pages и tests/tooltips/helpers.
 - Проверьте, что предыдущий UI-тест проходит. В начале его спеки стоит await login(page) из tests/helpers/login.js.

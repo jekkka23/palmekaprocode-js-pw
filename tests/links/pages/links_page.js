@@ -6,8 +6,8 @@ export class LinksPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Ссылки']");
     // Находим заголовок тренажера через XPath.
-    this.practiceLink = page.locator("xpath=//div[@id='links-playground']//a[@id='practice-link']");
-    // Находим ссылку возврата по id внутри тренажера.
+    this.practiceLink = page.locator("xpath=//a[@id='practice-link']");
+    // Находим ссылку возврата по уникальному id.
     this.fieldHeading = page.locator("xpath=//h1[text()='Проверяйте интерфейс руками и автотестами']");
     // Готовим XPath заголовка страницы назначения.
   }

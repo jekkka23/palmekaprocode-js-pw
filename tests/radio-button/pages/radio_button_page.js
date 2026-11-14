@@ -6,9 +6,9 @@ export class RadioButtonPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Радиокнопки']");
     // Находим заголовок тренажера через XPath.
-    this.yes = page.locator("xpath=//div[@id='radio-group']//input[@id='radio-yes']");
-    // Ищем доступный ответ Да внутри группы.
-    this.no = page.locator("xpath=//div[@id='radio-group']//input[@id='radio-no']");
+    this.yes = page.locator("xpath=//input[@id='radio-yes']");
+    // Ищем доступный ответ Да по уникальному id.
+    this.no = page.locator("xpath=//input[@id='radio-no']");
     // Ищем заблокированный ответ Нет.
     this.result = page.locator("xpath=//div[@id='radio-result']/p");
     // Ищем строку результата после выбора.

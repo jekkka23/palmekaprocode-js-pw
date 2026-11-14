@@ -6,12 +6,12 @@ export class TextBoxPage {
     // Сохраняем вкладку для перехода на тренажер.
     this.heading = page.locator("xpath=//h1[text()='Текстовые поля']");
     // Находим заголовок тренажера по точному тексту.
-    this.name = page.locator("xpath=//form[@id='text-box-form']//input[@id='full-name']");
-    // Находим поле имени по id внутри формы.
-    this.email = page.locator("xpath=//form[@id='text-box-form']//input[@type='email']");
-    // Находим поле почты по type внутри той же формы.
-    this.submitButton = page.locator("xpath=//form[@id='text-box-form']//button[@type='submit']");
-    // Находим кнопку отправки внутри формы.
+    this.name = page.locator("xpath=//input[@id='full-name']");
+    // Находим поле имени по уникальному id.
+    this.email = page.locator("xpath=//input[@id='user-email']");
+    // Находим поле почты по уникальному id.
+    this.submitButton = page.locator("xpath=//button[@id='submit-text-box']");
+    // Находим кнопку отправки по уникальному id.
     this.result = page.locator("xpath=//div[@id='text-box-output']");
     // Находим блок, который появится после отправки формы.
   }

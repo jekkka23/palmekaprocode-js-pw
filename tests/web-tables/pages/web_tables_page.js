@@ -8,19 +8,19 @@ export class WebTablesPage {
     // Находим заголовок тренажера.
     this.addButton = page.locator("xpath=//button[@id='add-record']");
     // Находим кнопку открытия формы.
-    this.firstName = page.locator("xpath=//form[@id='record-form']//input[@id='record-first-name']");
+    this.firstName = page.locator("xpath=//input[@id='record-first-name']");
     // Находим поле имени.
-    this.lastName = page.locator("xpath=//form[@id='record-form']//input[@id='record-last-name']");
+    this.lastName = page.locator("xpath=//input[@id='record-last-name']");
     // Находим поле фамилии.
-    this.email = page.locator("xpath=//form[@id='record-form']//input[@id='record-email']");
+    this.email = page.locator("xpath=//input[@id='record-email']");
     // Находим поле почты.
-    this.age = page.locator("xpath=//form[@id='record-form']//input[@id='record-age']");
+    this.age = page.locator("xpath=//input[@id='record-age']");
     // Находим обязательный возраст.
-    this.salary = page.locator("xpath=//form[@id='record-form']//input[@id='record-salary']");
+    this.salary = page.locator("xpath=//input[@id='record-salary']");
     // Находим обязательную зарплату.
-    this.department = page.locator("xpath=//form[@id='record-form']//input[@id='record-department']");
+    this.department = page.locator("xpath=//input[@id='record-department']");
     // Находим поле отдела.
-    this.saveButton = page.locator("xpath=//form[@id='record-form']//button[@id='save-record']");
+    this.saveButton = page.locator("xpath=//button[@id='save-record']");
     // Находим кнопку сохранения записи.
   }
   // Завершаем подготовку локаторов.
@@ -52,7 +52,7 @@ export class WebTablesPage {
   // Завершаем метод addRecord.
   rowWithEmail(email) {
   // Получаем почту записи, которую надо проверить.
-    return this.page.locator(`xpath=//table[@id='records-table']//tbody/tr[td[text()='${email}']]`);
+    return this.page.locator(`xpath=//tr[td[text()='${email}']]`);
     // Возвращаем строку с точной почтой в одной из ячеек.
   }
   // Завершаем метод поиска строки.

@@ -121,8 +121,8 @@ test("учебный аккаунт открывает тренажер", async 
   // Хелпер открывает /login, вводит учетные данные и ждет кабинет
   console.log("вход выполнен");
 
-  await page.locator("xpath=//header//a[@href='/practice']").click();
-  // Находим ссылку на поле внутри верхнего меню по XPath и нажимаем ее.
+  await page.locator("xpath=//a[text()='Тренировочное поле']").click();
+  // Находим ссылку на поле по точному тексту и нажимаем ее.
   console.log("поле открыто");
 
   await page.locator("xpath=//a[@id='tool-text-box']").click();

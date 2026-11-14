@@ -8,8 +8,8 @@ export class TooltipsPage {
     // Находим заголовок тренажера через XPath.
     this.button = page.locator("xpath=//button[@id='tooltip-button']");
     // Ищем кнопку для наведения.
-    this.wrapper = page.locator("xpath=//button[@id='tooltip-button']/parent::span[@data-tip]");
-    // Ищем родительский узел с текстом подсказки.
+    this.wrapper = page.locator("xpath=//span[@data-tip='Подсказка у кнопки']");
+    // Ищем обертку кнопки по значению атрибута data-tip.
   }
   // Завершаем подготовку локаторов.
   async open() {

@@ -6,7 +6,7 @@ export class FilesPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Загрузка и скачивание']");
     // Находим заголовок тренажера через XPath.
-    this.upload = page.locator("xpath=//div[@id='file-playground']//input[@id='upload-file']");
+    this.upload = page.locator("xpath=//input[@id='upload-file']");
     // Ищем input для выбора файла.
     this.uploadedName = page.locator("xpath=//p[@id='uploaded-file-name']");
     // Ищем строку выбранного имени.

@@ -27,8 +27,8 @@ test("XPath находит поля и результат", async ({ page }) => 
   const name = page.locator("xpath=//input[@id='full-name']");
   // const создает переменную name. В ней лежит локатор, а не текст.
   // locator готовит поиск. xpath= говорит: строка дальше — это XPath.
-  // //form — найти форму. [@id='text-box-form'] — именно эту форму.
-  // //input[@id='full-name'] — поле «Имя и фамилия» внутри формы.
+  // //input выбирает поля input, @id обращается к атрибуту id.
+  // [@id='full-name'] оставляет поле с нужным id.
   await expect(name).toHaveCount(1);
   // toHaveCount(1) проверяет: путь нашел ровно одно поле. Если ноль или несколько, тест останавливается здесь.
   await name.fill("Иван Петров");
@@ -36,8 +36,8 @@ test("XPath находит поля и результат", async ({ page }) => 
   await page.waitForTimeout(pauseMs);
 
   console.log("Шаг: заполняю почту — ivan@example.ru");
-  const email = page.locator("xpath=//input[@type='email']");
-  // Ищем поле почты по атрибуту type=email внутри той же формы.
+  const email = page.locator("xpath=//input[@id='user-email']");
+  // Находим поле почты по уникальному id user-email.
   await expect(email).toHaveCount(1);
   await email.fill("ivan@example.ru");
   // Пишем учебную почту. Знак @ здесь — часть адреса почты, не команда XPath.
@@ -58,8 +58,8 @@ test("XPath находит поля и результат", async ({ page }) => 
   await page.waitForTimeout(pauseMs);
 
   console.log("Шаг: нажимаю Отправить");
-  const submit = page.locator("xpath=//form[@id='text-box-form']//button[@type='submit']");
-  // button[@type='submit'] — кнопка отправки формы. Текст на ней — «Отправить».
+  const submit = page.locator("xpath=//button[@id='submit-text-box']");
+  // Находим кнопку отправки по уникальному id submit-text-box.
   await expect(submit).toHaveCount(1);
   await submit.click();
   // click нажимает кнопку. После этого на странице появляется блок результата.

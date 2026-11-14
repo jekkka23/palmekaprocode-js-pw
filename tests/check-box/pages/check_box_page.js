@@ -6,11 +6,11 @@ export class CheckBoxPage {
     // Сохраняем вкладку для перехода на тренажер.
     this.heading = page.locator("xpath=//h1[text()='Чекбоксы']");
     // Находим заголовок открытого тренажера.
-    this.desktop = page.locator("xpath=//div[@id='check-box-tree']//label[text()='Рабочий стол']/input[@type='checkbox']");
+    this.desktop = page.locator("xpath=//label[text()='Рабочий стол']/input[@type='checkbox']");
     // Находим родительский input внутри label с точной подписью.
-    this.notes = page.locator("xpath=//div[@id='check-box-tree']//label[text()='Заметки']/input[@type='checkbox']");
+    this.notes = page.locator("xpath=//label[text()='Заметки']/input[@type='checkbox']");
     // Находим первый дочерний input по подписи label.
-    this.commands = page.locator("xpath=//div[@id='check-box-tree']//label[text()='Команды']/input[@type='checkbox']");
+    this.commands = page.locator("xpath=//label[text()='Команды']/input[@type='checkbox']");
     // Находим второй дочерний input по подписи label.
     this.result = page.locator("xpath=//div[@id='check-box-result']/p");
     // Находим строку выбранных пунктов внутри блока результата.

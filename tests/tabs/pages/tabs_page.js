@@ -6,7 +6,7 @@ export class TabsPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Вкладки']");
     // Находим заголовок тренажера через XPath.
-    this.origin = page.locator("xpath=//div[@id='tabs']//button[@id='tab-origin']");
+    this.origin = page.locator("xpath=//button[@id='tab-origin']");
     // Ищем вкладку Откуда.
     this.panel = page.locator("xpath=//div[@id='tab-panel-origin']");
     // Ищем панель выбранной вкладки.

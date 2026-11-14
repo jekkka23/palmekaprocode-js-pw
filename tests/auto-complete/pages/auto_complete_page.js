@@ -6,11 +6,11 @@ export class AutoCompletePage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Автодополнение']");
     // Находим заголовок тренажера через XPath.
-    this.input = page.locator("xpath=//div[@id='auto-complete']//input[@id='auto-complete-input']");
-    // Ищем поле ввода внутри тренажера.
-    this.suggestion = page.locator("xpath=//div[@id='color-suggestions']/button[text()='Синий']");
+    this.input = page.locator("xpath=//input[@id='auto-complete-input']");
+    // Ищем поле ввода по уникальному id.
+    this.suggestion = page.locator("xpath=//button[text()='Синий']");
     // Находим нужную подсказку по видимому тексту.
-    this.tag = page.locator("xpath=//div[@id='color-tags']/span[contains(text(), 'Синий')]");
+    this.tag = page.locator("xpath=//span[contains(text(), 'Синий')]");
     // Находим добавленный тег по цвету.
   }
   // Завершаем подготовку локаторов.

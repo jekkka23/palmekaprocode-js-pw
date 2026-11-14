@@ -6,23 +6,23 @@ export class PracticeFormPage {
     // Сохраняем вкладку для перехода на страницу.
     this.heading = page.locator("xpath=//h1[text()='Учебная форма']");
     // Находим заголовок тренажера.
-    this.firstName = page.locator("xpath=//form[@id='student-form']//input[@id='first-name']");
+    this.firstName = page.locator("xpath=//input[@id='first-name']");
     // Находим поле имени без совпадений с другими подписями.
-    this.lastName = page.locator("xpath=//form[@id='student-form']//input[@id='last-name']");
+    this.lastName = page.locator("xpath=//input[@id='last-name']");
     // Находим поле фамилии.
-    this.gender = page.locator("xpath=//form[@id='student-form']//input[@id='gender-female']");
+    this.gender = page.locator("xpath=//input[@id='gender-female']");
     // Находим один вариант пола.
-    this.phone = page.locator("xpath=//form[@id='student-form']//input[@id='mobile-number']");
+    this.phone = page.locator("xpath=//input[@id='mobile-number']");
     // Находим обязательный телефон.
-    this.birthDate = page.locator("xpath=//form[@id='student-form']//input[@id='birth-date']");
+    this.birthDate = page.locator("xpath=//input[@id='birth-date']");
     // Находим обязательную дату рождения.
-    this.region = page.locator("xpath=//form[@id='student-form']//select[@id='region']");
+    this.region = page.locator("xpath=//select[@id='region']");
     // Находим список регионов.
-    this.city = page.locator("xpath=//form[@id='student-form']//select[@id='city']");
+    this.city = page.locator("xpath=//select[@id='city']");
     // Находим зависимый список городов.
-    this.submitButton = page.locator("xpath=//form[@id='student-form']//button[@id='submit-student-form']");
+    this.submitButton = page.locator("xpath=//button[@id='submit-student-form']");
     // Находим кнопку отправки.
-    this.summary = page.locator("xpath=//div[@id='student-summary-modal']//section[@role='dialog']");
+    this.summary = page.locator("xpath=//section[@aria-labelledby='student-summary-title']");
     // Находим итоговое окно, которое появится после отправки.
   }
   // Завершаем подготовку локаторов.

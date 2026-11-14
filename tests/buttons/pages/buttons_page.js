@@ -6,11 +6,11 @@ export class ButtonsPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Кнопки']");
     // Находим заголовок тренажера через XPath.
-    this.single = page.locator("xpath=//div[@id='button-playground']//button[@id='single-click']");
+    this.single = page.locator("xpath=//button[@id='single-click']");
     // Ищем кнопку обычного клика.
-    this.double = page.locator("xpath=//div[@id='button-playground']//button[@id='double-click']");
+    this.double = page.locator("xpath=//button[@id='double-click']");
     // Ищем кнопку двойного клика.
-    this.right = page.locator("xpath=//div[@id='button-playground']//button[@id='right-click']");
+    this.right = page.locator("xpath=//button[@id='right-click']");
     // Ищем кнопку правого клика.
     this.result = page.locator("xpath=//div[@id='button-result']");
     // Ищем общий блок сообщений.

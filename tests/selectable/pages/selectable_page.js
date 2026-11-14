@@ -6,9 +6,9 @@ export class SelectablePage {
     // Сохраняем вкладку для перехода.
     this.heading = page.locator("xpath=//h1[text()='Выбор элементов']");
     // Находим заголовок тренажера.
-    this.first = page.locator("xpath=//div[@id='selectable-list']//button[@id='selectable-1']");
+    this.first = page.locator("xpath=//button[@id='selectable-1']");
     // Находим первый пункт выбора.
-    this.third = page.locator("xpath=//div[@id='selectable-list']//button[@id='selectable-3']");
+    this.third = page.locator("xpath=//button[@id='selectable-3']");
     // Находим третий пункт выбора.
     this.result = page.locator("xpath=//div[@id='selection-result']/p");
     // Находим только строку результата без заголовка блока.

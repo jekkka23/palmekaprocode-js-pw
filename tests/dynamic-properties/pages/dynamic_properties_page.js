@@ -6,9 +6,9 @@ export class DynamicPropertiesPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Динамические свойства']");
     // Находим заголовок тренажера через XPath.
-    this.enabled = page.locator("xpath=//div[@id='dynamic-playground']//button[@id='enable-after']");
+    this.enabled = page.locator("xpath=//button[@id='enable-after']");
     // Ищем кнопку, которая станет доступной.
-    this.visible = page.locator("xpath=//div[@id='dynamic-playground']//button[@id='visible-after']");
+    this.visible = page.locator("xpath=//button[@id='visible-after']");
     // Готовим XPath кнопки, которая появится позже.
   }
   // Завершаем подготовку локаторов.

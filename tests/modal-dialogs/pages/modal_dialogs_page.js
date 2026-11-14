@@ -8,7 +8,7 @@ export class ModalDialogsPage {
     // Находим заголовок тренажера.
     this.openSmallButton = page.locator("xpath=//button[@id='small-modal']");
     // Находим кнопку открытия маленького окна.
-    this.smallDialog = page.locator("xpath=//div[@id='small-modal-dialog']//section[@role='dialog']");
+    this.smallDialog = page.locator("xpath=//section[@aria-labelledby='small-modal-dialog-title']");
     // Находим диалог внутри подложки маленького окна.
     this.closeButton = this.smallDialog.locator("xpath=.//button[text()='Закрыть']");
     // Находим кнопку с точным текстом внутри этого диалога.

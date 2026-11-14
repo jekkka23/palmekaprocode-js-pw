@@ -6,11 +6,11 @@ export class MenuPage {
     // Сохраняем вкладку для перехода и событий браузера.
     this.heading = page.locator("xpath=//h1[text()='Меню']");
     // Находим заголовок тренажера через XPath.
-    this.products = page.locator("xpath=//nav[@id='menu']//button[@id='menu-products']");
+    this.products = page.locator("xpath=//button[@id='menu-products']");
     // Ищем первый пункт с подменю.
-    this.mobile = page.locator("xpath=//nav[@id='menu']//button[@id='menu-mobile']");
+    this.mobile = page.locator("xpath=//button[@id='menu-mobile']");
     // Ищем пункт второго уровня.
-    this.android = page.locator("xpath=//nav[@id='menu']//a[@id='menu-android']");
+    this.android = page.locator("xpath=//a[@id='menu-android']");
     // Ищем ссылку третьего уровня.
   }
   // Завершаем подготовку локаторов.

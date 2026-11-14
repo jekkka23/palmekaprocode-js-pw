@@ -5,19 +5,19 @@ export class OpenLessonPage {
     // Сохраняем вкладку, чтобы использовать ее в методах ниже.
     this.page = page;
     // Находим поле почты внутри формы входа по XPath.
-    this.email = page.locator("xpath=//form[contains(@class,'auth-form')]//input[@name='email']");
+    this.email = page.locator("xpath=//input[@name='email']");
     // Находим поле пароля внутри той же формы.
-    this.password = page.locator("xpath=//form[contains(@class,'auth-form')]//input[@name='password']");
-    // Находим кнопку входа по типу и видимому тексту.
-    this.loginButton = page.locator("xpath=//form[contains(@class,'auth-form')]//button[@type='submit' and text()='Войти']");
+    this.password = page.locator("xpath=//input[@name='password']");
+    // Находим кнопку входа по видимому тексту.
+    this.loginButton = page.locator("xpath=//button[text()='Войти']");
     // Находим приветствие в личном кабинете после входа.
-    this.welcome = page.locator("xpath=//header[contains(@class,'account-welcome')]//h1");
+    this.welcome = page.locator("xpath=//h1[contains(text(),'Привет,')]");
     // Находим заголовок страницы учебного API.
     this.heading = page.locator("xpath=//h1[text()='Учебный REST API']");
     // Находим поле с адресом готового заказа.
-    this.orderUrl = page.locator("xpath=//article[@id='endpoint-get-order']//input[@id='url-get-order']");
+    this.orderUrl = page.locator("xpath=//input[@id='url-get-order']");
     // Находим кнопку отправки GET-реквеста из интерфейса.
-    this.readOrderButton = page.locator("xpath=//article[@id='endpoint-get-order']//button[@id='send-get-order']");
+    this.readOrderButton = page.locator("xpath=//button[@id='send-get-order']");
     // Находим блок, в котором сайт покажет статус и JSON заказа.
     this.orderResult = page.locator("xpath=//section[@id='response-get-order']");
     // Находим личный токен для отдельного API-реквеста.
