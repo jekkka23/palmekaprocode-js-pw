@@ -4,7 +4,7 @@ export class AlertsPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Уведомления']");
+    this.heading = page.locator("xpath=//h1[text()='Уведомления']");
     // Находим заголовок тренажера через XPath.
     this.alertButton = page.locator("xpath=//div[@id='alerts-playground']//button[@id='alert-button']");
     // Ищем кнопку открытия alert.

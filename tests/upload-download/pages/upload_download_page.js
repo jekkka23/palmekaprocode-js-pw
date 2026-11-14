@@ -4,7 +4,7 @@ export class FilesPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Загрузка и скачивание']");
+    this.heading = page.locator("xpath=//h1[text()='Загрузка и скачивание']");
     // Находим заголовок тренажера через XPath.
     this.upload = page.locator("xpath=//div[@id='file-playground']//input[@id='upload-file']");
     // Ищем input для выбора файла.

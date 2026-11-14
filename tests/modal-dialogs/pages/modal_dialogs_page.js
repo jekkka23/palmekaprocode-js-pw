@@ -4,13 +4,13 @@ export class ModalDialogsPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Модальные окна']");
+    this.heading = page.locator("xpath=//h1[text()='Модальные окна']");
     // Находим заголовок тренажера.
     this.openSmallButton = page.locator("xpath=//button[@id='small-modal']");
     // Находим кнопку открытия маленького окна.
     this.smallDialog = page.locator("xpath=//div[@id='small-modal-dialog']//section[@role='dialog']");
     // Находим диалог внутри подложки маленького окна.
-    this.closeButton = this.smallDialog.locator("xpath=.//button[normalize-space(.)='Закрыть']");
+    this.closeButton = this.smallDialog.locator("xpath=.//button[text()='Закрыть']");
     // Находим кнопку с точным текстом внутри этого диалога.
   }
   // Завершаем подготовку локаторов.

@@ -4,7 +4,7 @@ export class NestedFramesPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Вложенные фреймы']");
+    this.heading = page.locator("xpath=//h1[text()='Вложенные фреймы']");
     // Находим заголовок тренажера через XPath.
     this.parent = page.locator("xpath=//iframe[@id='parent-frame']");
     // Ищем родительский iframe на основной странице.

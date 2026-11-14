@@ -4,7 +4,7 @@ export class ResizablePage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Изменение размера']");
+    this.heading = page.locator("xpath=//h1[text()='Изменение размера']");
     // Находим заголовок тренажера через XPath.
     this.box = page.locator("xpath=//div[@id='resize-box-free']");
     // Находим свободно растягиваемый блок.

@@ -4,7 +4,7 @@ export class SelectMenuPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Селекты']");
+    this.heading = page.locator("xpath=//h1[text()='Селекты']");
     // Находим заголовок тренажера через XPath.
     this.value = page.locator("xpath=//select[@id='select-value']");
     // Ищем первый селект.

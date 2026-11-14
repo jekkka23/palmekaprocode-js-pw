@@ -9,11 +9,11 @@ export class OpenLessonPage {
     // Находим поле пароля внутри той же формы.
     this.password = page.locator("xpath=//form[contains(@class,'auth-form')]//input[@name='password']");
     // Находим кнопку входа по типу и видимому тексту.
-    this.loginButton = page.locator("xpath=//form[contains(@class,'auth-form')]//button[@type='submit' and normalize-space(.)='Войти']");
+    this.loginButton = page.locator("xpath=//form[contains(@class,'auth-form')]//button[@type='submit' and text()='Войти']");
     // Находим приветствие в личном кабинете после входа.
     this.welcome = page.locator("xpath=//header[contains(@class,'account-welcome')]//h1");
     // Находим заголовок страницы учебного API.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Учебный REST API']");
+    this.heading = page.locator("xpath=//h1[text()='Учебный REST API']");
     // Находим поле с адресом готового заказа.
     this.orderUrl = page.locator("xpath=//article[@id='endpoint-get-order']//input[@id='url-get-order']");
     // Находим кнопку отправки GET-реквеста из интерфейса.

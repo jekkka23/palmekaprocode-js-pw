@@ -4,7 +4,7 @@ export class ProgressBarPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Прогресс-бар']");
+    this.heading = page.locator("xpath=//h1[text()='Прогресс-бар']");
     // Находим заголовок тренажера через XPath.
     this.bar = page.locator("xpath=//div[@id='progress-bar']");
     // Ищем шкалу с текущим значением.

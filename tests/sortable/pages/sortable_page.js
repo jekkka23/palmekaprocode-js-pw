@@ -4,11 +4,11 @@ export class SortablePage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Сортировка']");
+    this.heading = page.locator("xpath=//h1[text()='Сортировка']");
     // Находим заголовок тренажера через XPath.
-    this.first = page.locator("xpath=//div[@id='sortable-list']/div[span[normalize-space(.)='Один']]");
+    this.first = page.locator("xpath=//div[@id='sortable-list']/div[span[text()='Один']]");
     // Находим карточку Один по ее подписи.
-    this.third = page.locator("xpath=//div[@id='sortable-list']/div[span[normalize-space(.)='Три']]");
+    this.third = page.locator("xpath=//div[@id='sortable-list']/div[span[text()='Три']]");
     // Находим карточку Три как цель.
     this.result = page.locator("xpath=//div[@id='sort-result']/p");
     // Ищем собранный порядок после переноса.

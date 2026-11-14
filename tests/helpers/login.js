@@ -33,7 +33,7 @@ export async function login(page) {
   console.log("пароль введен");
   await page.locator("xpath=//button[contains(@type, 'submit') and contains(., 'Войти')]").click();
   // //button выбирает кнопку, @type='submit' указывает на отправку формы.
-  // normalize-space() проверяет текст 'Войти' без лишних пробелов по краям.
+  // contains проверяет, что текст кнопки содержит "Войти".
   // click нажимает эту кнопку и отправляет форму.
   console.log("кнопка входа нажата");
   await expect(page).toHaveURL("/account");
@@ -41,8 +41,8 @@ export async function login(page) {
   // toHaveURL ждет, пока адрес станет адресом кабинета.
   // адрес сайта берется из baseURL в playwright.config.js.
   console.log("кабинет открыт");
-  await expect(page.locator("xpath=//a[normalize-space()='Тренировочное поле']")).toBeVisible();
-  // //a выбирает ссылку, normalize-space() проверяет текст 'Тренировочное поле'.
+  await expect(page.locator("xpath=//a[text()='Тренировочное поле']")).toBeVisible();
+  // //a выбирает ссылку, text() проверяет ее точный текст "Тренировочное поле".
   // Эта ссылка видна в кабинете после входа.
   // toBeVisible ждет, пока ссылка появится на экране.
   console.log("вход проверен");

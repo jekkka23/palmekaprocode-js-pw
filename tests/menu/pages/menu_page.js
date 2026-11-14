@@ -4,7 +4,7 @@ export class MenuPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Меню']");
+    this.heading = page.locator("xpath=//h1[text()='Меню']");
     // Находим заголовок тренажера через XPath.
     this.products = page.locator("xpath=//nav[@id='menu']//button[@id='menu-products']");
     // Ищем первый пункт с подменю.

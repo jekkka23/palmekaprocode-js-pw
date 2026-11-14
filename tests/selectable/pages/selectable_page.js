@@ -4,7 +4,7 @@ export class SelectablePage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Выбор элементов']");
+    this.heading = page.locator("xpath=//h1[text()='Выбор элементов']");
     // Находим заголовок тренажера.
     this.first = page.locator("xpath=//div[@id='selectable-list']//button[@id='selectable-1']");
     // Находим первый пункт выбора.

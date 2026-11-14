@@ -4,7 +4,7 @@ export class BrokenResourcesPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Битые ссылки и изображения']");
+    this.heading = page.locator("xpath=//h1[text()='Битые ссылки и изображения']");
     // Находим заголовок тренажера через XPath.
     this.validImage = page.locator("xpath=//img[@id='valid-image']");
     // Ищем рабочее изображение по id.

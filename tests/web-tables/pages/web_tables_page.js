@@ -4,7 +4,7 @@ export class WebTablesPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и поиска строки.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Веб-таблица']");
+    this.heading = page.locator("xpath=//h1[text()='Веб-таблица']");
     // Находим заголовок тренажера.
     this.addButton = page.locator("xpath=//button[@id='add-record']");
     // Находим кнопку открытия формы.
@@ -52,7 +52,7 @@ export class WebTablesPage {
   // Завершаем метод addRecord.
   rowWithEmail(email) {
   // Получаем почту записи, которую надо проверить.
-    return this.page.locator(`xpath=//table[@id='records-table']//tbody/tr[td[normalize-space(.)='${email}']]`);
+    return this.page.locator(`xpath=//table[@id='records-table']//tbody/tr[td[text()='${email}']]`);
     // Возвращаем строку с точной почтой в одной из ячеек.
   }
   // Завершаем метод поиска строки.

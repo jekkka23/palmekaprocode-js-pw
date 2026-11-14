@@ -4,7 +4,7 @@ export class FramesPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Фреймы']");
+    this.heading = page.locator("xpath=//h1[text()='Фреймы']");
     // Находим заголовок тренажера через XPath.
     this.frame = page.locator("xpath=//iframe[@id='frame-one']");
     // Ищем рамку первого учебного фрейма.

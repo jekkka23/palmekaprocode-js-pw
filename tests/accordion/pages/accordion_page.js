@@ -4,7 +4,7 @@ export class AccordionPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Аккордеон']");
+    this.heading = page.locator("xpath=//h1[text()='Аккордеон']");
     // Находим заголовок тренажера.
     this.button = page.locator("xpath=//button[@id='accordion-automation']");
     // Находим кнопку пункта про автоматизацию.

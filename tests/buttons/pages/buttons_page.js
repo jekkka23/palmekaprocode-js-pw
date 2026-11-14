@@ -4,7 +4,7 @@ export class ButtonsPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Кнопки']");
+    this.heading = page.locator("xpath=//h1[text()='Кнопки']");
     // Находим заголовок тренажера через XPath.
     this.single = page.locator("xpath=//div[@id='button-playground']//button[@id='single-click']");
     // Ищем кнопку обычного клика.

@@ -4,7 +4,7 @@ export class RadioButtonPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Радиокнопки']");
+    this.heading = page.locator("xpath=//h1[text()='Радиокнопки']");
     // Находим заголовок тренажера через XPath.
     this.yes = page.locator("xpath=//div[@id='radio-group']//input[@id='radio-yes']");
     // Ищем доступный ответ Да внутри группы.

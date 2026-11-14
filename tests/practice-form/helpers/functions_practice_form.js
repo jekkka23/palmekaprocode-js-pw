@@ -24,11 +24,11 @@ export async function runPracticeFormCase(page, data) {
   // Начинаем проверку результата.
     await expect(form.summary).toBeVisible();
     // Дожидаемся появления итогового окна.
-    const student = form.summary.locator("xpath=.//tr[th[normalize-space(.)='Ученик']]/td");
+    const student = form.summary.locator("xpath=.//tr[th[text()='Ученик']]/td");
     // Находим значение в строке с заголовком Ученик.
     await expect(student).toHaveText(`${data.firstName} ${data.lastName}`);
     // Сравниваем имя и фамилию с данными из спеки.
-    const location = form.summary.locator("xpath=.//tr[th[normalize-space(.)='Регион и город']]/td");
+    const location = form.summary.locator("xpath=.//tr[th[text()='Регион и город']]/td");
     // Находим значение в строке региона и города.
     await expect(location).toHaveText(`${data.region}, ${data.city}`);
     // Проверяем выбранную пару из данных спеки.

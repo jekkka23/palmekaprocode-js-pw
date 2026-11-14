@@ -4,7 +4,7 @@ export class PracticeFormPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода на страницу.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Учебная форма']");
+    this.heading = page.locator("xpath=//h1[text()='Учебная форма']");
     // Находим заголовок тренажера.
     this.firstName = page.locator("xpath=//form[@id='student-form']//input[@id='first-name']");
     // Находим поле имени без совпадений с другими подписями.

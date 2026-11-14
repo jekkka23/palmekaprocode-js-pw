@@ -4,7 +4,7 @@ export class SliderPage {
   // Получаем вкладку текущего теста.
     this.page = page;
     // Сохраняем вкладку для перехода и событий браузера.
-    this.heading = page.locator("xpath=//h1[normalize-space(.)='Слайдер']");
+    this.heading = page.locator("xpath=//h1[text()='Слайдер']");
     // Находим заголовок тренажера через XPath.
     this.range = page.locator("xpath=//input[@id='range-slider']");
     // Ищем сам ползунок.
